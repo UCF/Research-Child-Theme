@@ -43,6 +43,7 @@ get_header(); the_post(); ?>
 		<div class="row">
 			<div class="col-lg-8">
 				<?php the_content(); ?>
+				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 				<h2 class="h4 text-default mt-5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
 				<ul>
 				<?php foreach( $cluster_colleges as $college ) : ?>
@@ -53,6 +54,7 @@ get_header(); the_post(); ?>
 					</li>
 				<?php endforeach; ?>
 				</ul>
+				<?php endif; ?>
 			</div>
 			<div class="col-lg-3 offset-lg-1">
 				<?php if ( $cluster_proposal ) : ?>
@@ -80,9 +82,9 @@ get_header(); the_post(); ?>
 	</div>
 	<!-- Start Goals! -->
 	<?php if ( $goal_count > 0 ) : ?>
-	<section class="bg-inverse jumbotron">
+	<section class="bg-inverse jumbotron" aria-labelledby="goals">
 		<div class="container">
-			<h2>Goals</h2>
+			<h2 id="goals">Goals</h2>
 			<div class="row">
 				<?php if ( $cluster_gen_goals ) : ?>
 				<div class="col-lg-6<?php echo $goal_count < 2 ? ' offset-lg-3' : ''; ?>">
@@ -100,27 +102,31 @@ get_header(); the_post(); ?>
 	<?php endif; ?>
 	<div class="container">
 	<?php if ( $cluster_values && count( $cluster_values ) > 0 ) : ?>
-		<h2 class="my-5">Why Join the <?php echo $post->post_title; ?> Cluster?</h2>
+	<section aria-labelledby="why-join">
+		<h2 id="why-join" class="my-5">Why Join the <?php echo $post->post_title; ?> Cluster?</h2>
 		<div class="row mb-5">
 		<?php foreach( $cluster_values as $value_statement ) : ?>
 			<div class="col-md-4">
-				<p class="h4 mb-3"><?php echo $value_statement['value_title']; ?></p>
-				<p class="font-condensed"><?php echo $value_statement['value_content']; ?></p>
+				<h3 class="h4 mb-3"><?php echo $value_statement['value_title']; ?></h3>
+				<?php echo $value_statement['value_content']; ?>
 			</div>
 		<?php endforeach; ?>
 		</div>
+	</section>
 	<?php endif; // cluster value statements ?>
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
-	<h2 class="h3 mb-4"><?php echo $post->post_title; ?> Faculty</h2>
-	<p><?php echo $cluster_faculty_message; ?>
-	<div class="jumbotron jumbotron-light">
+	<section aria-labelledby="faculty-listing">
+	<h2 id="faculty-listing" class="h3 mb-4"><?php echo $post->post_title; ?> Faculty</h2>
+	<?php echo $cluster_faculty_message; ?>
+	<div class="jumbotron jumbotron-light mt-4 pt-4 pb-2">
 		<h3 class="heading-underline">Cluster Faculty</h3>
 		<ul class="list-unstyled">
 		<?php foreach( $cluster_faculty as $faculty ) : ?>
-			<li><a href="mailto:<?php echo $faculty->person_email; ?>"><?php echo $faculty->post_title; ?></a>, <?php echo $faculty->person_jobtitle; ?>
+			<li><a href="mailto:<?php echo $faculty->person_email; ?>"><?php echo $faculty->post_title; ?></a>, <?php echo $faculty->person_jobtitle; ?></li>
 		<?php endforeach; ?>
 		</ul>
 	</div>
+	</section>
 	<?php endif; ?>
 	</div>
 </article>
