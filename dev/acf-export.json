@@ -1,0 +1,365 @@
+[
+    {
+        "key": "group_5e627619cf1b7",
+        "title": "Research Cluster Fields",
+        "fields": [
+            {
+                "key": "field_5e6650cea7f63",
+                "label": "Cluster Lead",
+                "name": "cluster_lead",
+                "type": "post_object",
+                "instructions": "Select the faculty cluster lead.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6650e8a7f64",
+                "label": "Cluster Lead Full Title",
+                "name": "cluster_lead_title",
+                "type": "text",
+                "instructions": "The full title of the faculty cluster lead.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e62763403873",
+                "label": "Cluster Proposal",
+                "name": "cluster_proposal",
+                "type": "post_object",
+                "instructions": "Select the cluster proposal document.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "document"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e62766803874",
+                "label": "Associated Colleges and Centers",
+                "name": "cluster_colleges",
+                "type": "repeater",
+                "instructions": "List the colleges and centers associated with this research cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6276b203875",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6276b203875",
+                        "label": "Name",
+                        "name": "college_name",
+                        "type": "text",
+                        "instructions": "The name of the college or center.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e6276c903876",
+                        "label": "URL",
+                        "name": "college_url",
+                        "type": "url",
+                        "instructions": "The homepage of the college or center.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6276f403877",
+                "label": "News",
+                "name": "cluster_news",
+                "type": "repeater",
+                "instructions": "List news articles related to this research cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e62772b03878",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e62772b03878",
+                        "label": "Title",
+                        "name": "news_title",
+                        "type": "text",
+                        "instructions": "The title of the story",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e62774203879",
+                        "label": "URL",
+                        "name": "news_url",
+                        "type": "url",
+                        "instructions": "The URL of the story.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6277580387a",
+                        "label": "Source",
+                        "name": "news_source",
+                        "type": "text",
+                        "instructions": "The source of the article.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e62777c0387b",
+                "label": "General Goals",
+                "name": "cluster_general_goals",
+                "type": "wysiwyg",
+                "instructions": "List the general goals of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5e6277d10387d",
+                "label": "Long Term Goals",
+                "name": "cluster_long_term_goals",
+                "type": "wysiwyg",
+                "instructions": "List the long term goals of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5e6278010387e",
+                "label": "Value Statements",
+                "name": "cluster_value_statements",
+                "type": "repeater",
+                "instructions": "Enter a series of value statements for this cluster. Try to answer the question, \"Why join this cluster?\"",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6278300387f",
+                        "label": "Title",
+                        "name": "value_title",
+                        "type": "text",
+                        "instructions": "Enter the title of this value statement.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e62784303880",
+                        "label": "Content",
+                        "name": "value_content",
+                        "type": "wysiwyg",
+                        "instructions": "Enter the value statement. Simple HTML markup allowed.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "delay": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_5e62788403881",
+                "label": "Faculty Value Message",
+                "name": "cluster_faculty_message",
+                "type": "textarea",
+                "instructions": "Enter a value message about the faculty that are a part of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5e6278bbb9efc",
+                "label": "Faculty Members",
+                "name": "cluster_faculty_members",
+                "type": "relationship",
+                "instructions": "Select the faculty members who are a part of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]
