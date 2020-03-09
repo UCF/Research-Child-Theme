@@ -4,6 +4,47 @@
         "title": "Research Cluster Fields",
         "fields": [
             {
+                "key": "field_5e6650cea7f63",
+                "label": "Cluster Lead",
+                "name": "cluster_lead",
+                "type": "post_object",
+                "instructions": "Select the faculty cluster lead.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6650e8a7f64",
+                "label": "Cluster Lead Full Title",
+                "name": "cluster_lead_title",
+                "type": "text",
+                "instructions": "The full title of the faculty cluster lead.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
                 "key": "field_5e62763403873",
                 "label": "Cluster Proposal",
                 "name": "cluster_proposal",
@@ -276,7 +317,7 @@
                 "key": "field_5e6278bbb9efc",
                 "label": "Faculty Members",
                 "name": "cluster_faculty_members",
-                "type": "post_object",
+                "type": "relationship",
                 "instructions": "Select the faculty members who are a part of this cluster.",
                 "required": 0,
                 "conditional_logic": 0,
@@ -289,10 +330,13 @@
                     "person"
                 ],
                 "taxonomy": "",
-                "allow_null": 1,
-                "multiple": 1,
-                "return_format": "object",
-                "ui": 1
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
             }
         ],
         "location": [
