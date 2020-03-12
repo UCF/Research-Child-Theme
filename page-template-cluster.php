@@ -20,9 +20,12 @@ $cluster_values          = get_field( 'cluster_value_statements' );
 $cluster_faculty_message = get_field( 'cluster_faculty_message' );
 $cluster_faculty         = get_field( 'cluster_faculty_members' );
 
-$section_one    = get_field( 'promotional_section_one' );
-$section_two    = get_field( 'promotional_section_two' );
-$section_footer = get_field( 'promotional_section_footer' );
+$section_one        = get_field( 'promotional_section_one' );
+$section_one_lbl    = get_field( 'promotional_section_one_label' );
+$section_two        = get_field( 'promotional_section_two' );
+$section_two_lbl    = get_field( 'promotional_section_two_label' );
+$section_footer     = get_field( 'promotional_section_footer' );
+$section_footer_lbl = get_field( 'promotional_section_footer_label' );
 
 get_header(); the_post(); ?>
 
@@ -89,7 +92,7 @@ get_header(); the_post(); ?>
 		</div>
 	</div>
 	<!-- Promo Section One -->
-	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\"]" ) : ''; ?>
+	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start Goals! -->
 	<?php if ( $goal_count > 0 ) : ?>
@@ -126,7 +129,7 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; // cluster value statements ?>
 	</div>
-	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\"]" ) : ''; ?>
+	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
 	<div class="container">
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
 	<section aria-labelledby="faculty-listing">
@@ -143,7 +146,7 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; ?>
 	</div>
-	<?php echo ! empty( $section_footer ) ? do_shortcode( "[ucf-section id=\"$section_footer->ID\"]" ) : ''; ?>
+	<?php echo ! empty( $section_footer ) ? do_shortcode( "[ucf-section id=\"$section_footer->ID\" title=\"$section_footer_lbl\"]" ) : ''; ?>
 </article>
 
 <?php get_footer(); ?>
