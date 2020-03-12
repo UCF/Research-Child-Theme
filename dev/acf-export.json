@@ -1,15 +1,31 @@
 [
     {
-        "key": "group_5e627619cf1b7",
-        "title": "Research Cluster Fields",
+        "key": "group_5e68f414e8f6a",
+        "title": "Research Cluster - Interstitial Fields",
         "fields": [
             {
-                "key": "field_5e6650cea7f63",
-                "label": "Cluster Lead",
-                "name": "cluster_lead",
+                "key": "field_5e6a4cbb82e7b",
+                "label": "Promotional Section - One",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f41c8ee7c",
+                "label": "Section",
+                "name": "promotional_section_one",
                 "type": "post_object",
-                "instructions": "Select the faculty cluster lead.",
-                "required": 1,
+                "instructions": "Select the promotional section to insert.",
+                "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -17,22 +33,29 @@
                     "id": ""
                 },
                 "post_type": [
-                    "person"
+                    "ucf_section"
                 ],
                 "taxonomy": "",
-                "allow_null": 0,
+                "allow_null": 1,
                 "multiple": 0,
                 "return_format": "object",
                 "ui": 1
             },
             {
-                "key": "field_5e6650e8a7f64",
-                "label": "Cluster Lead Full Title",
-                "name": "cluster_lead_title",
+                "key": "field_5e6a4d8782e80",
+                "label": "Section Label",
+                "name": "promotional_section_one_label",
                 "type": "text",
-                "instructions": "The full title of the faculty cluster lead.",
-                "required": 0,
-                "conditional_logic": 0,
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f41c8ee7c",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -43,6 +66,246 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_5e6a4cea82e7c",
+                "label": "Promotional Section - Two",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f49b4e127",
+                "label": "Section",
+                "name": "promotional_section_two",
+                "type": "post_object",
+                "instructions": "Select the promotional section to insert.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "ucf_section"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6a4d5682e7f",
+                "label": "Section Label",
+                "name": "promotional_section_two_label",
+                "type": "text",
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f49b4e127",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6a4d0482e7d",
+                "label": "Promotional Section - Footer",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f4c74e128",
+                "label": "Section",
+                "name": "promotional_section_footer",
+                "type": "post_object",
+                "instructions": "Select the promotional section to insert above the footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "ucf_section"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6a4d1a82e7e",
+                "label": "Section Label",
+                "name": "promotional_section_footer_label",
+                "type": "text",
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f4c74e128",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                },
+                {
+                    "param": "current_user_role",
+                    "operator": "==",
+                    "value": "administrator"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                },
+                {
+                    "param": "current_user_role",
+                    "operator": "==",
+                    "value": "super_admin"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e627619cf1b7",
+        "title": "Research Cluster Fields",
+        "fields": [
+            {
+                "key": "field_5e68f030e0d6e",
+                "label": "Cluster Leads",
+                "name": "cluster_leads",
+                "type": "repeater",
+                "instructions": "List the lead faculty members of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e68f05de0d6f",
+                "min": 1,
+                "max": 0,
+                "layout": "row",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e68f05de0d6f",
+                        "label": "Cluster Lead",
+                        "name": "cluster_lead",
+                        "type": "post_object",
+                        "instructions": "Select the faculty cluster lead.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "person"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    },
+                    {
+                        "key": "field_5e68f090e0d70",
+                        "label": "Cluster Lead Full Title",
+                        "name": "cluster_lead_title",
+                        "type": "text",
+                        "instructions": "The full title of the faculty cluster lead.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
             },
             {
                 "key": "field_5e62763403873",

@@ -3,8 +3,7 @@
  * Template Name: Research Cluster
  * Template Post Type: page
  */
-$cluster_lead       = get_field( 'cluster_lead' );
-$cluster_lead_title = get_field( 'cluster_lead_title' ) ?: $cluster_lead->person_jobtitle;
+$cluster_leads      = get_field( 'cluster_leads' );
 
 
 $cluster_colleges  = get_field( 'cluster_colleges' );
@@ -21,21 +20,33 @@ $cluster_values          = get_field( 'cluster_value_statements' );
 $cluster_faculty_message = get_field( 'cluster_faculty_message' );
 $cluster_faculty         = get_field( 'cluster_faculty_members' );
 
+$section_one        = get_field( 'promotional_section_one' );
+$section_one_lbl    = get_field( 'promotional_section_one_label' );
+$section_two        = get_field( 'promotional_section_two' );
+$section_two_lbl    = get_field( 'promotional_section_two_label' );
+$section_footer     = get_field( 'promotional_section_footer' );
+$section_footer_lbl = get_field( 'promotional_section_footer_label' );
+
 get_header(); the_post(); ?>
 
 <article class="<?php echo $post->post_status; ?> post-list-item">
 	<div class="bg-faded">
 		<div class="container py-4">
 			<div class="row">
-				<div class="col-lg-2">
-					<h2 class="h5 text-muted font-italic">Cluster Lead:</h2>
+				<div class="col-lg-2 col-md-3">
+					<h2 class="h5 text-muted font-italic">Cluster Lead<?php echo count( $cluster_leads ) > 1 ? 's' : ''; ?>:</h2>
 				</div>
-				<div class="col-lg-10">
+				<?php foreach( $cluster_leads as $cluster_lead_obj ) :
+					$cluster_lead = $cluster_lead_obj['cluster_lead'];
+					$cluster_lead_title = $cluster_lead_obj['cluster_lead_title'] ?: $cluster_lead->person_jobtitle;
+				?>
+				<div class="col">
 					<p class="mb-1 font-bold"><?php echo $cluster_lead->person_title_prefix; ?> <?php echo $cluster_lead->post_title; ?></p>
 					<span class="d-block"><?php echo $cluster_lead_title; ?></span>
 					<span class="d-block"><a href="tel:<?php echo $cluster_lead->person_phone; ?>"><?php echo $cluster_lead->person_phone; ?></a></span>
 					<span class="d-block"><a href="mailto:<?php echo $cluster_lead->person_email; ?>"><?php echo $cluster_lead->person_email; ?></a></span>
 				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
@@ -80,6 +91,9 @@ get_header(); the_post(); ?>
 			</div>
 		</div>
 	</div>
+	<!-- Promo Section One -->
+	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
+	<!-- End Promo Section One -->
 	<!-- Start Goals! -->
 	<?php if ( $goal_count > 0 ) : ?>
 	<section class="bg-inverse jumbotron" aria-labelledby="goals">
@@ -114,6 +128,9 @@ get_header(); the_post(); ?>
 		</div>
 	</section>
 	<?php endif; // cluster value statements ?>
+	</div>
+	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
+	<div class="container">
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
 	<section aria-labelledby="faculty-listing">
 	<h2 id="faculty-listing" class="h3 mb-4"><?php echo $post->post_title; ?> Faculty</h2>
@@ -129,6 +146,7 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; ?>
 	</div>
+	<?php echo ! empty( $section_footer ) ? do_shortcode( "[ucf-section id=\"$section_footer->ID\" title=\"$section_footer_lbl\"]" ) : ''; ?>
 </article>
 
 <?php get_footer(); ?>
