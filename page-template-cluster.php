@@ -5,10 +5,11 @@
  */
 $cluster_leads      = get_field( 'cluster_leads' );
 
-
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_proposal  = get_field( 'cluster_proposal' );
-$cluster_news      = get_field( 'cluster_news' );
+$cluster_stories   = get_field( 'cluster_news_stories' );
+
+$news = research_get_news( $cluster_stories );
 
 $cluster_gen_goals = get_field( 'cluster_general_goals' );
 $cluster_lng_goals = get_field( 'cluster_long_term_goals' );
