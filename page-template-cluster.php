@@ -5,10 +5,12 @@
  */
 $cluster_leads      = get_field( 'cluster_leads' );
 
-
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_proposal  = get_field( 'cluster_proposal' );
 $cluster_news      = get_field( 'cluster_news' );
+$cluster_stories   = get_field( 'cluster_news_stories' );
+
+$news = research_get_news( $cluster_stories );
 
 $cluster_gen_goals = get_field( 'cluster_general_goals' );
 $cluster_lng_goals = get_field( 'cluster_long_term_goals' );
@@ -76,24 +78,27 @@ get_header(); the_post(); ?>
 					</a>
 				</div>
 				<?php endif; // End if $cluster_proposal ?>
-
-				<?php if ( $cluster_news ) : ?>
-				<h3 class="text-default h4 mb-4">Learn More About <?php echo $post->post_title; ?>:</h3>
-				<?php foreach( $cluster_news as $news ) : ?>
-				<div class="cluster-news-item mt-1 mb-2">
-					<a class="text-secondary font-weight-bold" href="<?php echo $news['news_url']; ?>" target="_blank">
-						<?php echo $news['news_title']; ?>
-					</a>
-					<p class="text-muted text-small font-italic"><?php echo $news['news_source']; ?>
-				</div>
-				<?php endforeach; ?>
-				<?php endif; // End if $cluster_news ?>
 			</div>
 		</div>
 	</div>
 	<!-- Promo Section One -->
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
+	<!-- Start News -->
+	<?php if ( ! empty( $news ) && count( $news ) > 0 ) : ?>
+	<div class="container py-4 py-md-5">
+		<h2 class="h1 mb-0">In The News</h2>
+		<hr class="mt-2">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="ucf-news modern">
+				<?php foreach( $news as $item ) echo $item; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+	<!-- End News -->
 	<!-- Start Goals! -->
 	<?php if ( $goal_count > 0 ) : ?>
 	<section class="bg-inverse jumbotron" aria-labelledby="goals">
