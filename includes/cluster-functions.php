@@ -47,7 +47,7 @@ function research_get_today_markup( $story ) {
 	$parsed_url = parse_url( $story['today_url'] );
 	$path = $parsed_url['path'];
 
-	preg_match( '/\/news\/(?P<slug>[a-zA-Z0-9\-]*)/', $path, $matches );
+	preg_match( '/\/news\/(?P<slug>[a-zA-Z0-9\-\_]*)/', $path, $matches );
 
 	if ( isset( $matches['slug'] ) && ! empty( $matches['slug'] ) ) {
 		$slug = $matches['slug'];
@@ -80,7 +80,7 @@ function research_get_pegasus_markup( $story ) {
 	$parsed_url = parse_url( $story['pegasus_url'] );
 	$path = $parsed_url['path'];
 
-	preg_match( '/\/pegasus\/(?P<slug>[a-zA-Z\-]+)/', $path, $matches );
+	preg_match( '/\/pegasus\/(?P<slug>[a-zA-Z\-\_]+)/', $path, $matches );
 
 	if ( isset( $matches['slug'] ) && ! empty( $matches['slug'] ) ) {
 		$slug = $matches['slug'];
