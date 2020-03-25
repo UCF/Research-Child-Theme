@@ -242,11 +242,446 @@
         "description": ""
     },
     {
-        "key": "group_5e627619cf1b7",
+        "key": "group_5e6a6df06c71e",
         "title": "Research Cluster Fields",
         "fields": [
             {
-                "key": "field_5e68f030e0d6e",
+                "key": "field_5e6b94250d197",
+                "label": "News Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6b94390d198",
+                "label": "News Stories",
+                "name": "cluster_news_stories",
+                "type": "repeater",
+                "instructions": "Select the news stories to display for this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6b945d0d199",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6b945d0d199",
+                        "label": "Story Source",
+                        "name": "story_source",
+                        "type": "radio",
+                        "instructions": "Select the source of the news story.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "today": "UCF Today",
+                            "pegasus": "Pegasus Magazine",
+                            "research": "Research Post",
+                            "external": "Other"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "today",
+                        "layout": "vertical",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_5e6b94bd0d19a",
+                        "label": "Today URL",
+                        "name": "today_url",
+                        "type": "url",
+                        "instructions": "The URL of the Today story.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "today"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6b94de0d19b",
+                        "label": "Pegasus URL",
+                        "name": "pegasus_url",
+                        "type": "url",
+                        "instructions": "The URL of the Pegasus Magazine story.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "pegasus"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6b94fc0d19c",
+                        "label": "Research Story",
+                        "name": "research_story",
+                        "type": "post_object",
+                        "instructions": "Select the research post to display.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "research"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "post"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    },
+                    {
+                        "key": "field_5e6b953a0d19d",
+                        "label": "Story URL",
+                        "name": "story_url",
+                        "type": "text",
+                        "instructions": "The URL of the story to display.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e6b95690d19f",
+                        "label": "Story Thumbnail",
+                        "name": "story_thumbnail",
+                        "type": "image",
+                        "instructions": "The thumbnail to display.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "jpg,jpeg,png"
+                    },
+                    {
+                        "key": "field_5e6b959a0d1a0",
+                        "label": "Story Title",
+                        "name": "story_title",
+                        "type": "text",
+                        "instructions": "The title of the story to display.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e6b95c70d1a1",
+                        "label": "Story Excerpt",
+                        "name": "story_excerpt",
+                        "type": "textarea",
+                        "instructions": "The excerpt to display.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "maxlength": 350,
+                        "rows": "",
+                        "new_lines": ""
+                    },
+                    {
+                        "key": "field_5e6b960c0d1a3",
+                        "label": "Story Source",
+                        "name": "story_source",
+                        "type": "text",
+                        "instructions": "The source of the story.",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "Orlando Sentinel",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6b9712aa2b3",
+                "label": "Research Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6b9726aa2b4",
+                "label": "Projects",
+                "name": "cluster_projects",
+                "type": "relationship",
+                "instructions": "Select the research projects for this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "document"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
+            },
+            {
+                "key": "field_5e6b9778aa2b6",
+                "label": "Publications",
+                "name": "cluster_publications",
+                "type": "relationship",
+                "instructions": "Select the publications related to this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "document"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
+            },
+            {
+                "key": "field_5e6b97d2e9587",
+                "label": "Academics Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6b97e5e9588",
+                "label": "Programs",
+                "name": "cluster_programs",
+                "type": "repeater",
+                "instructions": "List the programs associated with this research cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6b981de958a",
+                "min": 1,
+                "max": 10,
+                "layout": "row",
+                "button_label": "Add Program",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6b97fee9589",
+                        "label": "Program URL",
+                        "name": "program_url",
+                        "type": "url",
+                        "instructions": "Enter the URL of the program profile page.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6b981de958a",
+                        "label": "Program Name",
+                        "name": "program_name",
+                        "type": "text",
+                        "instructions": "Enter the program name.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6b9843e958b",
+                "label": "Researchers Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e7a44dc70c2d",
                 "label": "Cluster Leads",
                 "name": "cluster_leads",
                 "type": "repeater",
@@ -258,14 +693,14 @@
                     "class": "",
                     "id": ""
                 },
-                "collapsed": "field_5e68f05de0d6f",
+                "collapsed": "field_5e7a450170c2e",
                 "min": 1,
                 "max": 0,
                 "layout": "row",
                 "button_label": "",
                 "sub_fields": [
                     {
-                        "key": "field_5e68f05de0d6f",
+                        "key": "field_5e7a450170c2e",
                         "label": "Cluster Lead",
                         "name": "cluster_lead",
                         "type": "post_object",
@@ -287,7 +722,7 @@
                         "ui": 1
                     },
                     {
-                        "key": "field_5e68f090e0d70",
+                        "key": "field_5e7a452c70c2f",
                         "label": "Cluster Lead Full Title",
                         "name": "cluster_lead_title",
                         "type": "text",
@@ -308,11 +743,11 @@
                 ]
             },
             {
-                "key": "field_5e62763403873",
-                "label": "Cluster Proposal",
-                "name": "cluster_proposal",
-                "type": "post_object",
-                "instructions": "Select the cluster proposal document.",
+                "key": "field_5e6b9851e958c",
+                "label": "Faculty",
+                "name": "cluster_faculty",
+                "type": "relationship",
+                "instructions": "List the faculty members associated with this cluster.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -321,16 +756,44 @@
                     "id": ""
                 },
                 "post_type": [
-                    "document"
+                    "person"
                 ],
                 "taxonomy": "",
-                "allow_null": 1,
-                "multiple": 0,
-                "return_format": "object",
-                "ui": 1
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": 1,
+                "max": 20,
+                "return_format": "object"
             },
             {
-                "key": "field_5e62766803874",
+                "key": "field_5e6b989be958e",
+                "label": "Post Docs and Students",
+                "name": "cluster_students",
+                "type": "relationship",
+                "instructions": "Select the post docs and students associated with this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": 0,
+                "max": 20,
+                "return_format": "object"
+            },
+            {
+                "key": "field_5e7a45c769d29",
                 "label": "Associated Colleges and Centers",
                 "name": "cluster_colleges",
                 "type": "repeater",
@@ -342,14 +805,14 @@
                     "class": "",
                     "id": ""
                 },
-                "collapsed": "field_5e6276b203875",
-                "min": 0,
+                "collapsed": "field_5e7a45de69d2a",
+                "min": 1,
                 "max": 0,
                 "layout": "table",
                 "button_label": "",
                 "sub_fields": [
                     {
-                        "key": "field_5e6276b203875",
+                        "key": "field_5e7a45de69d2a",
                         "label": "Name",
                         "name": "college_name",
                         "type": "text",
@@ -368,7 +831,7 @@
                         "maxlength": ""
                     },
                     {
-                        "key": "field_5e6276c903876",
+                        "key": "field_5e7a45f669d2b",
                         "label": "URL",
                         "name": "college_url",
                         "type": "url",
@@ -386,11 +849,11 @@
                 ]
             },
             {
-                "key": "field_5e6276f403877",
-                "label": "News",
-                "name": "cluster_news",
-                "type": "repeater",
-                "instructions": "List news articles related to this research cluster.",
+                "key": "field_5e6b99453eeb7",
+                "label": "Events Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -398,74 +861,15 @@
                     "class": "",
                     "id": ""
                 },
-                "collapsed": "field_5e62772b03878",
-                "min": 0,
-                "max": 0,
-                "layout": "table",
-                "button_label": "",
-                "sub_fields": [
-                    {
-                        "key": "field_5e62772b03878",
-                        "label": "Title",
-                        "name": "news_title",
-                        "type": "text",
-                        "instructions": "The title of the story",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5e62774203879",
-                        "label": "URL",
-                        "name": "news_url",
-                        "type": "url",
-                        "instructions": "The URL of the story.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": ""
-                    },
-                    {
-                        "key": "field_5e6277580387a",
-                        "label": "Source",
-                        "name": "news_source",
-                        "type": "text",
-                        "instructions": "The source of the article.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    }
-                ]
+                "placement": "top",
+                "endpoint": 0
             },
             {
-                "key": "field_5e62777c0387b",
-                "label": "General Goals",
-                "name": "cluster_general_goals",
-                "type": "wysiwyg",
-                "instructions": "List the general goals of this cluster.",
+                "key": "field_5e6a99b40bf97",
+                "label": "Events Feed",
+                "name": "cluster_events_feed",
+                "type": "url",
+                "instructions": "The URL of the events calendar to display.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -474,17 +878,14 @@
                     "id": ""
                 },
                 "default_value": "",
-                "tabs": "all",
-                "toolbar": "basic",
-                "media_upload": 0,
-                "delay": 0
+                "placeholder": ""
             },
             {
-                "key": "field_5e6277d10387d",
-                "label": "Long Term Goals",
-                "name": "cluster_long_term_goals",
-                "type": "wysiwyg",
-                "instructions": "List the long term goals of this cluster.",
+                "key": "field_5e6b99543eeb8",
+                "label": "Social Media Section",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -492,18 +893,15 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "tabs": "all",
-                "toolbar": "basic",
-                "media_upload": 0,
-                "delay": 0
+                "placement": "top",
+                "endpoint": 0
             },
             {
-                "key": "field_5e6278010387e",
-                "label": "Value Statements",
-                "name": "cluster_value_statements",
+                "key": "field_5e6a6dfeedd8e",
+                "label": "Related Social",
+                "name": "cluster_related_tweets",
                 "type": "repeater",
-                "instructions": "Enter a series of value statements for this cluster. Try to answer the question, \"Why join this cluster?\"",
+                "instructions": "Add the URLs to relevant tweet or facebook posts.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -511,95 +909,29 @@
                     "class": "",
                     "id": ""
                 },
-                "collapsed": "",
+                "collapsed": "field_5e6a6e3bedd8f",
                 "min": 0,
                 "max": 0,
                 "layout": "row",
-                "button_label": "",
+                "button_label": "Add Social Post",
                 "sub_fields": [
                     {
-                        "key": "field_5e6278300387f",
-                        "label": "Title",
-                        "name": "value_title",
-                        "type": "text",
-                        "instructions": "Enter the title of this value statement.",
-                        "required": 0,
+                        "key": "field_5e6a6e3bedd8f",
+                        "label": "Social Post",
+                        "name": "social_embed",
+                        "type": "oembed",
+                        "instructions": "Paste in the URL of the Facebook post or tweet.",
+                        "required": 1,
                         "conditional_logic": 0,
                         "wrapper": {
                             "width": "",
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5e62784303880",
-                        "label": "Content",
-                        "name": "value_content",
-                        "type": "wysiwyg",
-                        "instructions": "Enter the value statement. Simple HTML markup allowed.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "tabs": "all",
-                        "toolbar": "basic",
-                        "media_upload": 0,
-                        "delay": 0
+                        "width": "",
+                        "height": ""
                     }
                 ]
-            },
-            {
-                "key": "field_5e62788403881",
-                "label": "Faculty Value Message",
-                "name": "cluster_faculty_message",
-                "type": "textarea",
-                "instructions": "Enter a value message about the faculty that are a part of this cluster.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "maxlength": "",
-                "rows": "",
-                "new_lines": ""
-            },
-            {
-                "key": "field_5e6278bbb9efc",
-                "label": "Faculty Members",
-                "name": "cluster_faculty_members",
-                "type": "relationship",
-                "instructions": "Select the faculty members who are a part of this cluster.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "person"
-                ],
-                "taxonomy": "",
-                "filters": [
-                    "search"
-                ],
-                "elements": "",
-                "min": "",
-                "max": "",
-                "return_format": "object"
             }
         ],
         "location": [
