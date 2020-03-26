@@ -20,13 +20,7 @@ function research_get_news( $meta ) {
 				$item = research_get_pegasus_markup( $story );
 				if ( $item ) $items[] = $item;
 				break;
-			case 'research':
-				$item = research_get_research_story( $story );
-				if ( $item ) $items[] = $item;
-				break;
 			default:
-				$item = research_get_external_story( $story );
-				if ( $item ) $items[] = $item;
 				break;
 		}
 	}
@@ -102,28 +96,6 @@ function research_get_pegasus_markup( $story ) {
 }
 
 /**
- * Returns the markup for a research story
- * @author Jim Barnes
- * @since 1.0.0
- * @param array $story The story meta
- * @return string
- */
-function research_get_research_story( $story ) {
-	return false;
-}
-
-/**
- * Returns the markup for an external story
- * @author Jim Barnes
- * @since 1.0.0
- * @param array $story The story meta
- * @return string
- */
-function research_get_external_story( $story ) {
-	return false;
-}
-
-/**
  * Formats the story and return the HTML markup
  * @author Jim Barnes
  * @since 1.0.0
@@ -138,16 +110,6 @@ function research_format_story( $story, $source = 'external' ) {
 		$title = $story->title->rendered;
 		$excerpt = $source === 'today' ? $story->excerpt->rendered : $story->story_description;
 		$source = $source === 'today' ? 'UCF Today' : 'Pegasus Magazine';
-	} else if ( $source = 'research' ) {
-		$permalink = get_permalink( $story->ID );
-		$title = $story->post_title;
-		$excerpt = $story->post_excerpt;
-		$source = 'UCF Research';
-	} else {
-		$permalink = $story['story_url'];
-		$title     = $story['story_title'];
-		$excerpt   = $story['story_excerpt'];
-		$source    = $story['story_source'];
 	}
 
 	ob_start();
@@ -160,7 +122,7 @@ function research_format_story( $story, $source = 'external' ) {
 			<div class="ucf-news-item-content">
 				<div class="ucf-news-item-details">
 					<p class="ucf-news-item-title"><?php echo $title; ?></p>
-					<p class="ucf-news-item-excerpt"><?php echo $excerpt; ?></p>
+					<p class="ucf-news-item-excerpt"><?php echo wp_trim_words( $excerpt, 20 ); ?></p>
 				</div>
 			</div>
 		</a>
@@ -169,7 +131,7 @@ function research_format_story( $story, $source = 'external' ) {
 	return ob_get_clean();
 }
 
-function research_get_thumbnail( $story, $source = 'external' ) {
+function research_get_thumbnail( $story, $source = 'today' ) {
 	switch( $source ) {
 		case 'today':
 			return $story->thumbnail;
@@ -179,10 +141,8 @@ function research_get_thumbnail( $story, $source = 'external' ) {
 			return isset( $featured_media[0]->media_details->sizes->thumbnail->source_url ) ?
 				$featured_media[0]->media_details->sizes->thumbnail->source_url :
 				'';
-		case 'research':
-			return get_the_post_thumbnail_url( $story->ID );
 		default:
-			return $story['story_thumbnail'];
+			return null;
 	}
 }
 
