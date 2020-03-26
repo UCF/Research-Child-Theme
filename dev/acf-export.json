@@ -285,7 +285,7 @@
                         "label": "Story Source",
                         "name": "story_source",
                         "type": "radio",
-                        "instructions": "Select the source of the news story",
+                        "instructions": "Select the source of the news story.",
                         "required": 1,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -309,7 +309,7 @@
                         "label": "Today URL",
                         "name": "today_url",
                         "type": "url",
-                        "instructions": "The URL of the Today story",
+                        "instructions": "The URL of the Today story.",
                         "required": 1,
                         "conditional_logic": [
                             [
@@ -333,7 +333,7 @@
                         "label": "Pegasus URL",
                         "name": "pegasus_url",
                         "type": "url",
-                        "instructions": "The URL of the Pegasus Magazine story",
+                        "instructions": "The URL of the Pegasus Magazine story.",
                         "required": 1,
                         "conditional_logic": [
                             [
@@ -476,7 +476,7 @@
                         "label": "Program Name",
                         "name": "program_name",
                         "type": "text",
-                        "instructions": "Enter the program name",
+                        "instructions": "Enter the program name.",
                         "required": 1,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -729,7 +729,7 @@
                 "label": "Related Social",
                 "name": "cluster_related_tweets",
                 "type": "repeater",
-                "instructions": "Add the URLs to relevant tweet or facebook posts",
+                "instructions": "Add the URLs to relevant tweet or facebook posts.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
