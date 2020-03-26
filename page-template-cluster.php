@@ -3,14 +3,16 @@
  * Template Name: Research Cluster
  * Template Post Type: page
  */
-$cluster_leads      = get_field( 'cluster_leads' );
-
+$cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_stories   = get_field( 'cluster_news_stories' );
+$cluster_events    = get_field( 'cluster_events_feed' );
+$cluster_social    = get_field( 'cluster_related_tweets' );
 
 $news = research_get_news( $cluster_stories );
 
-$cluster_faculty         = get_field( 'cluster_faculty' );
+$cluster_faculty = get_field( 'cluster_faculty' );
+
 
 $section_one        = get_field( 'promotional_section_one' );
 $section_one_lbl    = get_field( 'promotional_section_one_label' );
@@ -95,7 +97,27 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; ?>
 	</div>
+	<?php if ( ! empty( $cluster_events ) ) : ?>
+	</div><!-- End .container -->
+	<div class="jumbotron bg-inverse">
+		<div class="container">
+		<?php echo do_shortcode( "[ucf-events feed_url='$cluster_events' layout='modern']" ); ?>
+		</div>
+	</div>
+	<?php endif; ?>
 	<?php echo ! empty( $section_footer ) ? do_shortcode( "[ucf-section id=\"$section_footer->ID\" title=\"$section_footer_lbl\"]" ) : ''; ?>
+	<?php if ( ! empty( $cluster_social ) ) : ?>
+	<div class="container">
+		<h2><?php echo $post->post_title; ?> Social</h2>
+		<div class="row">
+		<?php foreach( $cluster_social as $embed ) : ?>
+			<div class="col-md-6 col-lg-4">
+			<?php echo $embed['social_embed']; ?>
+			</div>
+		<?php endforeach; ?>
+		</div>
+	</div>
+	<?php endif; ?>
 </article>
 
 <?php get_footer(); ?>
