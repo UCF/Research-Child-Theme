@@ -384,7 +384,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "document"
+                    "research_project"
                 ],
                 "taxonomy": "",
                 "filters": [
@@ -409,7 +409,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "document"
+                    "research_publication"
                 ],
                 "taxonomy": "",
                 "filters": [
