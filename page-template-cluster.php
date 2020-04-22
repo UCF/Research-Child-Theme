@@ -53,6 +53,8 @@ get_header(); the_post(); ?>
 		<div class="row">
 			<div class="col-lg-8">
 				<?php the_content(); ?>
+			</div>
+			<div class="col-lg-4">
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 				<h2 class="h4 text-default mt-5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
 				<ul>
@@ -87,19 +89,15 @@ get_header(); the_post(); ?>
 	<?php endif; ?>
 	<!-- End News -->
 	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
-	<div class="container">
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
 	<!-- Faculty -->
-	<section aria-labelledby="faculty-listing">
-	<h2 id="faculty-listing" class="h3 mb-4"><?php echo $post->post_title; ?> Faculty</h2>
-	<div class="jumbotron jumbotron-light mt-4 pt-4 pb-2">
-		<h3 class="heading-underline">Cluster Faculty</h3>
-		<ul class="list-unstyled">
-		<?php foreach( $cluster_faculty as $faculty ) : ?>
-			<li><a href="mailto:<?php echo $faculty->person_email; ?>"><?php echo $faculty->post_title; ?></a>, <?php echo $faculty->person_jobtitle; ?></li>
-		<?php endforeach; ?>
-		</ul>
-	</div>
+	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light">
+		<div class="container">
+			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
+			<div class="pt-4 pb-2">
+				<?php echo research_get_faculty_list( $cluster_faculty ); ?>
+			</div>
+		</div>
 	</section>
 	<!-- End Faculty -->
 	<!-- Research -->
