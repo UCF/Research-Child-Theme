@@ -3,6 +3,8 @@
  * Template Name: Research Cluster
  * Template Post Type: page
  */
+use UCFResearchPublication\Common;
+
 $cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_stories   = get_field( 'cluster_news_stories' );
@@ -20,6 +22,9 @@ $section_two        = get_field( 'promotional_section_two' );
 $section_two_lbl    = get_field( 'promotional_section_two_label' );
 $section_footer     = get_field( 'promotional_section_footer' );
 $section_footer_lbl = get_field( 'promotional_section_footer_label' );
+
+$research_projects     = get_field( 'cluster_projects' );
+$research_publications = get_field( 'cluster_publications' );
 
 get_header(); the_post(); ?>
 
@@ -48,12 +53,14 @@ get_header(); the_post(); ?>
 		<div class="row">
 			<div class="col-lg-8">
 				<?php the_content(); ?>
+			</div>
+			<div class="col-lg-4">
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
-				<h2 class="h4 text-default mt-5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
-				<ul>
+				<h2 class="h5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
+				<ul class="list-unstyled">
 				<?php foreach( $cluster_colleges as $college ) : ?>
-					<li>
-						<a class="text-primary" href="<?php echo $college['college_url']; ?>" target="_blank">
+					<li class="mb-2">
+						<a href="<?php echo $college['college_url']; ?>" target="_blank">
 							<?php echo $college['college_name']; ?>
 						</a>
 					</li>
@@ -82,19 +89,64 @@ get_header(); the_post(); ?>
 	<?php endif; ?>
 	<!-- End News -->
 	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
-	<div class="container">
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
-	<section aria-labelledby="faculty-listing">
-	<h2 id="faculty-listing" class="h3 mb-4"><?php echo $post->post_title; ?> Faculty</h2>
-	<div class="jumbotron jumbotron-light mt-4 pt-4 pb-2">
-		<h3 class="heading-underline">Cluster Faculty</h3>
-		<ul class="list-unstyled">
-		<?php foreach( $cluster_faculty as $faculty ) : ?>
-			<li><a href="mailto:<?php echo $faculty->person_email; ?>"><?php echo $faculty->post_title; ?></a>, <?php echo $faculty->person_jobtitle; ?></li>
-		<?php endforeach; ?>
-		</ul>
-	</div>
+	<!-- Faculty -->
+	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light">
+		<div class="container">
+			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
+			<div class="pt-4 pb-2">
+				<?php echo research_get_faculty_list( $cluster_faculty ); ?>
+			</div>
+		</div>
 	</section>
+	<!-- End Faculty -->
+	<!-- Research -->
+	<?php if ( ! empty( $research_projects ) ) : ?>
+	<section aria-labelledby="research-projects">
+		<div class="container">
+			<h2 id="research-projects" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
+			<div class="row">
+			<?php
+				foreach( $research_projects as $project ) :
+					$principle_investigator = get_field( 'rp_principle_investigator', $project->ID );
+					$co_investigators = get_field( 'rp_co_investigators', $project->ID );
+			?>
+				<div class="card col-lg-4 mb-4">
+					<div class="card-block">
+						<div class="card-title">
+							<h3 class="h5"><?php echo $project->post_title; ?></h3>
+							<dl>
+								<dd>Principle Investigator:</dd>
+								<dt><?php echo $principle_investigator->post_title; ?></dt>
+							</dl>
+							<p class="card-text"><?php echo $project->post_excerpt; ?></p>
+						</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+	<?php if ( ! empty( $research_publications ) ) : ?>
+	<section area-labelledby="research-publications">
+		<div class="container">
+			<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
+			<div class="card-deck">
+			<?php
+				foreach( $research_publications as $publication ) :
+			?>
+				<div class="card mb-4">
+					<div class="card-block">
+						<?php echo Common\get_publication_markup( $publication ); ?>
+					</div>
+				</div>
+			<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+	<!-- End Research -->
 	<?php endif; ?>
 	</div>
 	<?php if ( ! empty( $cluster_events ) ) : ?>
