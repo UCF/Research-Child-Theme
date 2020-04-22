@@ -56,11 +56,11 @@ get_header(); the_post(); ?>
 			</div>
 			<div class="col-lg-4">
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
-				<h2 class="h4 text-default mt-5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
-				<ul>
+				<h2 class="h5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
+				<ul class="list-unstyled">
 				<?php foreach( $cluster_colleges as $college ) : ?>
-					<li>
-						<a class="text-primary" href="<?php echo $college['college_url']; ?>" target="_blank">
+					<li class="mb-2">
+						<a href="<?php echo $college['college_url']; ?>" target="_blank">
 							<?php echo $college['college_name']; ?>
 						</a>
 					</li>
