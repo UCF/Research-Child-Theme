@@ -103,40 +103,46 @@ get_header(); the_post(); ?>
 	<!-- Research -->
 	<?php if ( ! empty( $research_projects ) ) : ?>
 	<section aria-labelledby="research-projects">
-		<h2 id="research-projects" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
-		<div class="row">
-		<?php
-			foreach( $research_projects as $project ) :
-				$principle_investigator = get_field( 'rp_principle_investigator', $project->ID );
-				$co_investigators = get_field( 'rp_co_investigators', $project->ID );
-		?>
-			<div class="card col-lg-4 mb-4">
-				<div class="card-block">
-					<div class="card-title">
-						<h3 class="h5"><?php echo $project->post_title; ?></h3>
-						<dl>
-							<dd>Principle Investigator:</dd>
-							<dt><?php echo $principle_investigator->post_title; ?></dt>
-						</dl>
-						<p class="card-text"><?php echo $project->post_excerpt; ?></p>
+		<div class="container">
+			<h2 id="research-projects" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
+			<div class="row">
+			<?php
+				foreach( $research_projects as $project ) :
+					$principle_investigator = get_field( 'rp_principle_investigator', $project->ID );
+					$co_investigators = get_field( 'rp_co_investigators', $project->ID );
+			?>
+				<div class="card col-lg-4 mb-4">
+					<div class="card-block">
+						<div class="card-title">
+							<h3 class="h5"><?php echo $project->post_title; ?></h3>
+							<dl>
+								<dd>Principle Investigator:</dd>
+								<dt><?php echo $principle_investigator->post_title; ?></dt>
+							</dl>
+							<p class="card-text"><?php echo $project->post_excerpt; ?></p>
+						</div>
 					</div>
 				</div>
+			<?php endforeach; ?>
 			</div>
-		<?php endforeach; ?>
 		</div>
 	</section>
 	<?php endif; ?>
 	<?php if ( ! empty( $research_publications ) ) : ?>
 	<section area-labelledby="research-publications">
-		<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
-		<div class="row">
-		<?php
-			foreach( $research_publications as $publication ) :
-		?>
-			<div class="col-lg-3">
-				<?php echo Common\get_publication_markup( $publication ); ?>
+		<div class="container">
+			<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
+			<div class="card-deck">
+			<?php
+				foreach( $research_publications as $publication ) :
+			?>
+				<div class="card mb-4">
+					<div class="card-block">
+						<?php echo Common\get_publication_markup( $publication ); ?>
+					</div>
+				</div>
+			<?php endforeach; ?>
 			</div>
-		<?php endforeach; ?>
 		</div>
 	</section>
 	<?php endif; ?>
