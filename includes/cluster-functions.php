@@ -8,6 +8,8 @@
  * stories for a cluster
  */
 function research_get_news( $meta ) {
+	if ( ! is_array( $meta ) || empty( $meta ) ) return null;
+
 	$items = array();
 
 	foreach( $meta as $story ) {

@@ -10,6 +10,8 @@ $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_stories   = get_field( 'cluster_news_stories' );
 $cluster_events    = get_field( 'cluster_events_feed' );
 $cluster_social    = get_field( 'cluster_related_tweets' );
+$cluster_prg_copy  = get_field( 'cluster_program_lead_copy' );
+$cluster_programs  = get_field( 'cluster_programs' );
 
 $news = research_get_news( $cluster_stories );
 
@@ -75,31 +77,21 @@ get_header(); the_post(); ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
 	<?php if ( ! empty( $news ) && count( $news ) > 0 ) : ?>
-	<div class="container py-4 py-md-5">
-		<h2 class="h1 mb-0">In The News</h2>
-		<hr class="mt-2">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="ucf-news modern">
-				<?php foreach( $news as $item ) echo $item; ?>
+	<div class="jumbotron bg-faded">
+		<div class="container">
+			<h2 class="h1 mb-0">In The News</h2>
+			<hr class="mt-2">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="ucf-news modern">
+					<?php foreach( $news as $item ) echo $item; ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<?php endif; ?>
 	<!-- End News -->
-	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
-	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
-	<!-- Faculty -->
-	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light">
-		<div class="container">
-			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
-			<div class="pt-4 pb-2">
-				<?php echo research_get_faculty_list( $cluster_faculty ); ?>
-			</div>
-		</div>
-	</section>
-	<!-- End Faculty -->
 	<!-- Research -->
 	<?php if ( ! empty( $research_projects ) ) : ?>
 	<section aria-labelledby="research-projects">
@@ -147,6 +139,56 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; ?>
 	<!-- End Research -->
+	<!-- Start Academics -->
+	<section class="jumbotron bg-inverse text-inverse" aria-labelledby="research-programs">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<h2 class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $post->post_title; ?> Degree Programs</h2>
+					<?php if ( $cluster_prg_copy ) : ?>
+					<div class="mb-5">
+						<p><?php echo $cluster_prg_copy; ?></p>
+					</div>
+					<?php endif; ?>
+					<div class="mb-5">
+						<?php echo do_shortcode( '[ucf-degree-search]' ); ?>
+					</div>
+				</div>
+				<div class="col-lg-1 hidden-md-down">
+					<hr class="hidden-xs hidden-sm hr-vertical hr-vertical-white center-block">
+				</div>
+				<div class="col-lg-3">
+					<h3 class="h5 mb-3 hidden-md-down"><span class="badge badge-inverse">Programs</span></h3>
+					<ul class="list-unstyled">
+					<?php foreach( $cluster_programs as $program ) : ?>
+						<li><a class="text-inverse" href="<?php echo $program['program_url']; ?>"><?php echo $program['program_name']; ?></a></li>
+					<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php if ( ! empty( $cluster_programs ) ) : ?>
+	<section aria-labelledby="research-programs">
+		<div class="container">
+		<h2 id="research-programs" class="h3"><?php echo $post->post_title; ?> Programs</h2>
+
+		</div>
+	</section>
+	<?php endif; ?>
+	<!-- End Academics -->
+	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
+	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
+	<!-- Faculty -->
+	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light">
+		<div class="container">
+			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
+			<div class="pt-4 pb-2">
+				<?php echo research_get_faculty_list( $cluster_faculty ); ?>
+			</div>
+		</div>
+	</section>
+	<!-- End Faculty -->
 	<?php endif; ?>
 	</div>
 	<?php if ( ! empty( $cluster_events ) ) : ?>
