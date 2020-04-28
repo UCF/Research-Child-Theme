@@ -140,6 +140,7 @@ get_header(); the_post(); ?>
 	<?php endif; ?>
 	<!-- End Research -->
 	<!-- Start Academics -->
+	<?php if ( is_array( $cluster_programs ) && ! empty( $cluster_programs ) ) : ?>
 	<section class="jumbotron bg-inverse text-inverse" aria-labelledby="research-programs">
 		<div class="container">
 			<div class="row">
@@ -151,14 +152,14 @@ get_header(); the_post(); ?>
 					</div>
 					<?php endif; ?>
 					<div class="mb-5">
-						<?php echo do_shortcode( '[ucf-degree-search]' ); ?>
+						<?php echo do_shortcode( '[ucf-degree-search placeholder="Search programs..."]' ); ?>
 					</div>
 				</div>
 				<div class="col-lg-1 hidden-md-down">
 					<hr class="hidden-xs hidden-sm hr-vertical hr-vertical-white center-block">
 				</div>
 				<div class="col-lg-3">
-					<h3 class="h5 mb-3 hidden-md-down"><span class="badge badge-inverse">Programs</span></h3>
+					<h3 class="h5 mb-3"><span class="badge badge-inverse">Programs</span></h3>
 					<ul class="list-unstyled">
 					<?php foreach( $cluster_programs as $program ) : ?>
 						<li><a class="text-inverse" href="<?php echo $program['program_url']; ?>"><?php echo $program['program_name']; ?></a></li>
@@ -166,13 +167,6 @@ get_header(); the_post(); ?>
 					</ul>
 				</div>
 			</div>
-		</div>
-	</section>
-	<?php if ( ! empty( $cluster_programs ) ) : ?>
-	<section aria-labelledby="research-programs">
-		<div class="container">
-		<h2 id="research-programs" class="h3"><?php echo $post->post_title; ?> Programs</h2>
-
 		</div>
 	</section>
 	<?php endif; ?>
