@@ -77,7 +77,7 @@ get_header(); the_post(); ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
 	<?php if ( ! empty( $news ) && count( $news ) > 0 ) : ?>
-	<div class="jumbotron bg-faded">
+	<div class="jumbotron bg-faded mb-0">
 		<div class="container">
 			<h2 class="h1 mb-0">In The News</h2>
 			<hr class="mt-2">
@@ -141,7 +141,7 @@ get_header(); the_post(); ?>
 	<!-- End Research -->
 	<!-- Start Academics -->
 	<?php if ( is_array( $cluster_programs ) && ! empty( $cluster_programs ) ) : ?>
-	<section class="jumbotron bg-inverse text-inverse" aria-labelledby="research-programs">
+	<section class="jumbotron bg-inverse text-inverse mb-0" aria-labelledby="research-programs">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
@@ -160,7 +160,7 @@ get_header(); the_post(); ?>
 				</div>
 				<div class="col-lg-3">
 					<h3 class="h5 mb-3"><span class="badge badge-inverse">Programs</span></h3>
-					<ul class="list-unstyled">
+					<ul class="pl-3">
 					<?php foreach( $cluster_programs as $program ) : ?>
 						<li><a class="text-inverse" href="<?php echo $program['program_url']; ?>"><?php echo $program['program_name']; ?></a></li>
 					<?php endforeach; ?>
@@ -174,7 +174,7 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
 	<!-- Faculty -->
-	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light">
+	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light mb-0">
 		<div class="container">
 			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
 			<div class="pt-4 pb-2">
@@ -187,7 +187,7 @@ get_header(); the_post(); ?>
 	</div>
 	<?php if ( ! empty( $cluster_events ) ) : ?>
 	</div><!-- End .container -->
-	<div class="jumbotron bg-inverse">
+	<div class="jumbotron bg-inverse mb-0">
 		<div class="container">
 		<?php echo do_shortcode( "[ucf-events feed_url='$cluster_events' layout='modern']" ); ?>
 		</div>
