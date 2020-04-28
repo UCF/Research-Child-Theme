@@ -145,7 +145,7 @@ get_header(); the_post(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
-					<h2 class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $post->post_title; ?> Degree Programs</h2>
+					<h2 id="research-programs" class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $post->post_title; ?> Degree Programs</h2>
 					<?php if ( $cluster_prg_copy ) : ?>
 					<div class="mb-5">
 						<p><?php echo $cluster_prg_copy; ?></p>
