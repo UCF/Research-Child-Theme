@@ -156,7 +156,7 @@ get_header(); the_post(); ?>
 					</div>
 				</div>
 				<div class="col-lg-1 hidden-md-down">
-					<hr class="hidden-xs hidden-sm hr-vertical hr-vertical-white center-block">
+					<hr class="hidden-xs hidden-sm hr-vertical hr-white center-block">
 				</div>
 				<div class="col-lg-3">
 					<h3 class="h5 mb-3"><span class="badge badge-inverse">Programs</span></h3>

@@ -441,7 +441,7 @@
                 "label": "Program Lead Copy",
                 "name": "cluster_program_lead_copy",
                 "type": "textarea",
-                "instructions": "The text to display above the degree search.",
+                "instructions": "The text to display above the degree search. Limited to one paragraph of no more than 300 characters.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -451,7 +451,7 @@
                 },
                 "default_value": "",
                 "placeholder": "",
-                "maxlength": "",
+                "maxlength": 300,
                 "rows": "",
                 "new_lines": ""
             },
