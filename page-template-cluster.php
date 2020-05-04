@@ -7,11 +7,14 @@ use UCFResearchPublication\Common;
 
 $cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
-$cluster_stories   = get_field( 'cluster_news_stories' );
 $cluster_events    = get_field( 'cluster_events_feed' );
 $cluster_social    = get_field( 'cluster_related_tweets' );
 $cluster_prg_copy  = get_field( 'cluster_program_lead_copy' );
 $cluster_programs  = get_field( 'cluster_programs' );
+
+$cluster_feed_type  = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
+$cluster_stories    = get_field( 'cluster_news_stories' );
 
 $news = research_get_news( $cluster_stories );
 
@@ -76,21 +79,21 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
-	<?php if ( ! empty( $news ) && count( $news ) > 0 ) : ?>
-	<div class="jumbotron bg-faded mb-0">
-		<div class="container">
-			<h2 class="h1 mb-0">In The News</h2>
-			<hr class="mt-2">
-			<div class="row">
-				<div class="col-md-8">
-					<div class="ucf-news modern">
-					<?php foreach( $news as $item ) echo $item; ?>
-					</div>
+	<div class="container py-4 py-md-5">
+		<h2 class="h1 mb-0">In The News</h2>
+		<hr class="mt-2">
+		<div class="row">
+			<div class="col-md-8">
+			<?php if ( $cluster_feed_type === 'feed' ) : ?>
+				<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
+			<?php else : ?>
+				<div class="ucf-news modern">
+				<?php foreach( $news as $item ) echo $item; ?>
 				</div>
+			<?php endif; ?>
 			</div>
 		</div>
 	</div>
-	<?php endif; ?>
 	<!-- End News -->
 	<!-- Research -->
 	<?php if ( ! empty( $research_projects ) ) : ?>
