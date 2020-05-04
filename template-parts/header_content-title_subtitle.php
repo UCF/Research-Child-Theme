@@ -14,7 +14,7 @@ $clusters_link = get_theme_mod( 'clusters_list_page' ) ? get_permalink( get_them
 	<div class="header-content-inner align-self-start pt-4 pt-sm-0 align-self-sm-center">
 		<div class="container">
 			<?php if ( $clusters_link ) : ?>
-			<div class="d-inline-block bg-inverse-t-2 p-3 mb-3">
+			<div class="d-inline-block bg-inverse-t-2 p-3 mb-1">
 				<a class="text-inverse text-uppercase letter-spacing-3 font-weight-black" href="<?php echo $clusters_link; ?>">UCF Faculty Clusters</a>
 			</div>
 			<div class="clearfix"></div>
