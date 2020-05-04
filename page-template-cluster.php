@@ -77,7 +77,6 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
-	<?php if ( ! empty( $news ) && count( $news ) > 0 ) : ?>
 	<div class="container py-4 py-md-5">
 		<h2 class="h1 mb-0">In The News</h2>
 		<hr class="mt-2">
@@ -93,7 +92,6 @@ get_header(); the_post(); ?>
 			</div>
 		</div>
 	</div>
-	<?php endif; ?>
 	<!-- End News -->
 	<?php echo ! empty( $section_two ) ? do_shortcode( "[ucf-section id=\"$section_two->ID\" title=\"$section_two_lbl\"]" ) : ''; ?>
 	<?php  if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
