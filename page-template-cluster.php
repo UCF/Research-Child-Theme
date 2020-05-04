@@ -7,9 +7,12 @@ use UCFResearchPublication\Common;
 
 $cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
-$cluster_stories   = get_field( 'cluster_news_stories' );
 $cluster_events    = get_field( 'cluster_events_feed' );
 $cluster_social    = get_field( 'cluster_related_tweets' );
+
+$cluster_feed_type  = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
+$cluster_stories    = get_field( 'cluster_news_stories' );
 
 $news = research_get_news( $cluster_stories );
 
@@ -80,9 +83,13 @@ get_header(); the_post(); ?>
 		<hr class="mt-2">
 		<div class="row">
 			<div class="col-md-8">
+			<?php if ( $cluster_feed_type === 'feed' ) : ?>
+				<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
+			<?php else : ?>
 				<div class="ucf-news modern">
 				<?php foreach( $news as $item ) echo $item; ?>
 				</div>
+			<?php endif; ?>
 			</div>
 		</div>
 	</div>
