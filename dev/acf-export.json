@@ -247,7 +247,7 @@
         "fields": [
             {
                 "key": "field_5e6b94250d197",
-                "label": "News Section",
+                "label": "News",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
@@ -415,7 +415,7 @@
             },
             {
                 "key": "field_5e6b9712aa2b3",
-                "label": "Research Section",
+                "label": "Research",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
@@ -481,7 +481,7 @@
             },
             {
                 "key": "field_5e6b97d2e9587",
-                "label": "Academics Section",
+                "label": "Academics",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
@@ -572,7 +572,7 @@
             },
             {
                 "key": "field_5e6b9843e958b",
-                "label": "Researchers Section",
+                "label": "Researchers",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
@@ -756,7 +756,7 @@
             },
             {
                 "key": "field_5e6b99453eeb7",
-                "label": "Events Section",
+                "label": "Events",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
@@ -788,7 +788,7 @@
             },
             {
                 "key": "field_5e6b99543eeb8",
-                "label": "Social Media Section",
+                "label": "Social Media",
                 "name": "",
                 "type": "tab",
                 "instructions": "",
