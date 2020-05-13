@@ -18,8 +18,10 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 
 		foreach( $posts as $idx => $post ) :
 
-		$bg_image_id = get_field( 'page_header_image', $post->ID );
-		$bg_image    = isset( $bg_image_id ) ? wp_get_attachment_image_src( $bg_image_id, 'header_img_sm' ) : null;
+		$bg_image_sm_id = get_field( 'page_header_image', $post->ID );
+		$bg_image_sm    = isset( $bg_image_sm_id ) ? wp_get_attachment_image_src( $bg_image_sm_id, 'header_img_sm' ) : null;
+		$bg_image_xs_id = get_field( 'page_header_image_xs', $post->ID );
+		$bg_image_xs    = isset( $bg_image_xs_id ) ? wp_get_attachment_image_src( $bg_image_xs_id, 'header_img_xs' ) : null;
 
 		$short_desc  = get_field( 'cluster_short_desc', $post->ID ) ?: null;
 
@@ -28,8 +30,11 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 	?>
 		<section id="<?php echo $post->post_name; ?>" aria-labelledby="<?php echo $post->post_name ?>-heading">
 			<div class="jumbotron jumbotron-fluid co-jumbotron-wrap media-background-container bg-inverse d-flex flex-column justify-content-end justify-content-md-center mb-0 p-0 p-sm-5">
-				<?php if ( $bg_image ) : ?>
-				<img src="<?php echo $bg_image[0]; ?>" alt="" class="co-jumbotron-bg media-background object-fit-cover">
+				<?php if ( $bg_image_sm && $bg_image_xs ) : ?>
+				<picture>
+					<source media="(min-width: 767px)" srcset="<?php echo $bg_image_sm[0]; ?>">
+					<img src="<?php echo $bg_image_xs[0]; ?>" alt="" class="co-jumbotron-bg media-background object-fit-cover">
+				</picture>
 				<?php endif; ?>
 				<div class="container">
 					<div class="row p-lg-5">
