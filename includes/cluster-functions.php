@@ -148,3 +148,31 @@ function research_get_thumbnail( $story, $source = 'today' ) {
 	}
 }
 
+/**
+ * Utility function for returning a header image
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @param int $post_id The post ID
+ * @param bool $xs True if request the xs image
+ * @return string The image path
+ */
+function research_cluster_get_header_image( $post_id, $xs = false ) {
+	$field_name = $xs ? 'page_header_image_xs' : 'page_header_image';
+	$img_size   = $xs ? 'header_img_xs' : 'header_img_sm';
+
+	$bg_image_id = get_field( $field_name, $post_id );
+	$bg_image    = isset( $bg_image_id ) ? wp_get_attachment_image_src( $bg_image_id, $img_size ) : null;
+
+	if ( $bg_image && is_array( $bg_image ) ) {
+		return $bg_image[0];
+	}
+
+	// We didn't get a head image back.
+	// Try to get a default
+
+	$theme_mod_name = $xs ? 'cluster_fallback_bg_xs' : 'cluster_fallback_bg';
+
+	$default_bg_image = get_theme_mod( $theme_mod_name );
+
+	return $default_bg_image;
+}
