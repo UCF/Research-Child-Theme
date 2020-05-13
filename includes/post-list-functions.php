@@ -32,7 +32,7 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 			<div class="jumbotron jumbotron-fluid co-jumbotron-wrap media-background-container bg-inverse d-flex flex-column justify-content-end justify-content-md-center mb-0 p-0 p-sm-5">
 				<?php if ( $bg_image_sm && $bg_image_xs ) : ?>
 				<picture>
-					<source media="(min-width: 767px)" srcset="<?php echo $bg_image_sm[0]; ?>">
+					<source media="(min-width: 575px)" srcset="<?php echo $bg_image_sm[0]; ?>">
 					<img src="<?php echo $bg_image_xs[0]; ?>" alt="" class="co-jumbotron-bg media-background object-fit-cover">
 				</picture>
 				<?php endif; ?>
