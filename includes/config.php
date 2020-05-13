@@ -53,8 +53,8 @@ function research_define_customizer_fields( $wp_customize ) {
 			array(
 				'label'    => __( 'Upload a fallback header image for clusters' ),
 				'section'  => RESEARCH_THEME_CUSTOMIZER_PREFIX . 'clusters',
-				'height'   => 1600,
-				'width'    => 550
+				'height'   => 500,
+				'width'    => 1600
 			)
 		)
 	);
