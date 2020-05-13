@@ -188,6 +188,16 @@ function research_cluster_get_header_image( $post_id, $xs = false ) {
  * @return array Modified set of Attachment IDs
  */
 function research_cluster_get_header_images_after( $header_imgs, $obj ) {
+	// Exit early if this isn't a research cluster
+	if ( ! get_post_type( $obj ) === 'page' || is_404() ) {
+		return $header_imgs;
+	}
+
+	if ( $obj->page_template !== 'page-template-cluster.php' ) {
+		return $header_imgs;
+	}
+
+	// Exit early if a header image is defined.
 	if ( isset( $header_imgs['header_image'] ) && $header_imgs['header_image'] ) {
 		return $header_imgs;
 	}
