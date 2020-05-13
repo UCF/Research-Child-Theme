@@ -176,3 +176,40 @@ function research_cluster_get_header_image( $post_id, $xs = false ) {
 
 	return $default_bg_image;
 }
+
+/**
+ * Set default header image IDs when custom images aren't set
+ * on an object.
+ *
+ * @since 1.0.0
+ * @author Jo Dickson
+ * @param array $header_imgs A set of Attachment IDs, one sized for use on -sm+ screens, and another for -xs
+ * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
+ * @return array Modified set of Attachment IDs
+ */
+function research_cluster_get_header_images_after( $header_imgs, $obj ) {
+	if ( isset( $header_imgs['header_image'] ) && $header_imgs['header_image'] ) {
+		return $header_imgs;
+	}
+
+	$default_sm = get_theme_mod( 'cluster_fallback_bg' );
+	$default_xs = get_theme_mod( 'cluster_fallback_bg_xs' );
+
+	if ( $default_sm ) {
+		$attachment_id = attachment_url_to_postid( $default_sm );
+		if ( $attachment_id ) {
+			$header_imgs['header_image'] = $attachment_id;
+		}
+	}
+
+	// Only set `header_image_xs` if the -sm+ image is available
+    // AND the -xs image is actually set:
+	if ( $default_sm && $default_xs ) {
+		$attachment_id_xs = attachment_url_to_postid( $default_xs );
+		$header_imgs['header_image_xs'] = $attachment_id_xs;
+	}
+
+	return $header_imgs;
+}
+
+add_filter( 'ucfwp_get_header_images_after', 'research_cluster_get_header_images_after', 11, 2 );
