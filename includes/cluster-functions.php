@@ -148,3 +148,78 @@ function research_get_thumbnail( $story, $source = 'today' ) {
 	}
 }
 
+/**
+ * Utility function for returning a header image
+ * @author Jim Barnes
+ * @since 1.0.0
+ * @param int $post_id The post ID
+ * @param bool $xs True if request the xs image
+ * @return string The image path
+ */
+function research_cluster_get_header_image( $post_id, $xs = false ) {
+	$field_name = $xs ? 'page_header_image_xs' : 'page_header_image';
+	$img_size   = $xs ? 'header_img_xs' : 'header_img_sm';
+
+	$bg_image_id = get_field( $field_name, $post_id );
+	$bg_image    = isset( $bg_image_id ) ? wp_get_attachment_image_src( $bg_image_id, $img_size ) : null;
+
+	if ( $bg_image && is_array( $bg_image ) ) {
+		return $bg_image[0];
+	}
+
+	// We didn't get a head image back.
+	// Try to get a default
+
+	$theme_mod_name = $xs ? 'cluster_fallback_bg_xs' : 'cluster_fallback_bg';
+
+	$default_bg_image = get_theme_mod( $theme_mod_name );
+
+	return $default_bg_image;
+}
+
+/**
+ * Set default header image IDs when custom images aren't set
+ * on an object.
+ *
+ * @since 1.0.0
+ * @author Jo Dickson
+ * @param array $header_imgs A set of Attachment IDs, one sized for use on -sm+ screens, and another for -xs
+ * @param mixed $obj A queried object (e.g. WP_Post, WP_Term), or null
+ * @return array Modified set of Attachment IDs
+ */
+function research_cluster_get_header_images_after( $header_imgs, $obj ) {
+	// Exit early if this isn't a research cluster
+	if ( ! get_post_type( $obj ) === 'page' || is_404() ) {
+		return $header_imgs;
+	}
+
+	if ( $obj->page_template !== 'page-template-cluster.php' ) {
+		return $header_imgs;
+	}
+
+	// Exit early if a header image is defined.
+	if ( isset( $header_imgs['header_image'] ) && $header_imgs['header_image'] ) {
+		return $header_imgs;
+	}
+
+	$default_sm = get_theme_mod( 'cluster_fallback_bg' );
+	$default_xs = get_theme_mod( 'cluster_fallback_bg_xs' );
+
+	if ( $default_sm ) {
+		$attachment_id = attachment_url_to_postid( $default_sm );
+		if ( $attachment_id ) {
+			$header_imgs['header_image'] = $attachment_id;
+		}
+	}
+
+	// Only set `header_image_xs` if the -sm+ image is available
+    // AND the -xs image is actually set:
+	if ( $default_sm && $default_xs ) {
+		$attachment_id_xs = attachment_url_to_postid( $default_xs );
+		$header_imgs['header_image_xs'] = $attachment_id_xs;
+	}
+
+	return $header_imgs;
+}
+
+add_filter( 'ucfwp_get_header_images_after', 'research_cluster_get_header_images_after', 11, 2 );
