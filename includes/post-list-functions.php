@@ -21,6 +21,8 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 		$bg_image_id = get_field( 'page_header_image', $post->ID );
 		$bg_image    = isset( $bg_image_id ) ? wp_get_attachment_image_src( $bg_image_id, 'header_img_sm' ) : null;
 
+		$short_desc  = get_field( 'cluster_short_desc', $post->ID ) ?: null;
+
 		$push = $idx % 2 === 0 ? false : true;
 
 	?>
@@ -34,7 +36,9 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 						<div class="col-12 col-md-8<?php echo $push ? ' offset-md-4' : ''?>">
 							<div class="bg-inverse-t-3 p-5">
 								<h2 class="display-5 font-condensed text-uppercase mt-0 mb-4" id="<?php echo $post->post_name; ?>-heading" aria-label="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></h2>
-								<p><?php echo $post->post_excerpt; ?></p>
+								<?php if ( $short_desc ) : ?>
+								<?php echo $short_desc; ?>
+								<?php endif; ?>
 								<a class="btn btn-primary mt-4 d-inline-block" href="<?php echo get_permalink( $post->ID ); ?>">Learn More about <?php echo $post->post_title; ?></a>
 							</div>
 						</div>

@@ -528,7 +528,7 @@
                     "id": ""
                 },
                 "collapsed": "field_5e6b981de958a",
-                "min": 1,
+                "min": 0,
                 "max": 10,
                 "layout": "row",
                 "button_label": "Add Program",
@@ -838,6 +838,41 @@
                         "height": ""
                     }
                 ]
+            },
+            {
+                "key": "field_5ebc071991ca7",
+                "label": "Cluster Listing",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5ebc072991ca8",
+                "label": "Short Description",
+                "name": "cluster_short_desc",
+                "type": "textarea",
+                "instructions": "The description that is shown when the cluster is listed with the other faculty clusters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
             }
         ],
         "location": [
