@@ -41,6 +41,40 @@ function research_define_customizer_fields( $wp_customize ) {
 			'section'     => RESEARCH_THEME_CUSTOMIZER_PREFIX . 'clusters'
 		)
 	);
+
+	$wp_customize->add_setting(
+		'cluster_fallback_bg'
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'cluster_fallback_bg',
+			array(
+				'label'    => __( 'Upload a fallback header image for clusters' ),
+				'section'  => RESEARCH_THEME_CUSTOMIZER_PREFIX . 'clusters',
+				'height'   => 1600,
+				'width'    => 550
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'cluster_fallback_bg_xs'
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'cluster_fallback_bg_xs',
+			array(
+				'label'    => __( 'Upload a fallback header image for the xs breakpoint for clusters' ),
+				'section'  => RESEARCH_THEME_CUSTOMIZER_PREFIX . 'clusters',
+				'height'   => 575,
+				'width'    => 575
+			)
+		)
+	);
 }
 
 add_action( 'customize_register', 'research_define_customizer_fields' );
