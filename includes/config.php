@@ -29,6 +29,20 @@ add_action( 'customize_register', 'research_define_customizer_sections' );
  */
 function research_define_customizer_fields( $wp_customize ) {
 	$wp_customize->add_setting(
+		'clusters_heading_text'
+	);
+
+	$wp_customize->add_control(
+		'clusters_heading_text',
+		array(
+			'type'        => 'text',
+			'label'       => 'Clusters Heading Text',
+			'description' => 'The text of the link in the research clusters header',
+			'section'     => RESEARCH_THEME_CUSTOMIZER_PREFIX . 'clusters'
+		)
+	);
+
+	$wp_customize->add_setting(
 		'clusters_list_page'
 	);
 

@@ -8,6 +8,7 @@ $h1_elem       = ucfwp_get_header_h1_elem( $obj );
 $title_elem    = ( $h1 === 'title' ) ? $h1_elem : 'span';
 $subtitle_elem = ( $h1 === 'subtitle' ) ? $h1_elem : 'span';
 
+$heading_text  = get_theme_mod( 'clusters_heading_text' ) ?: 'Faculty Research Clusters';
 $clusters_link = get_theme_mod( 'clusters_list_page' ) ? get_permalink( get_theme_mod( 'clusters_list_page' ) ) : null;
 ?>
 
@@ -16,7 +17,7 @@ $clusters_link = get_theme_mod( 'clusters_list_page' ) ? get_permalink( get_them
 		<div class="container">
 			<?php if ( $clusters_link && $template && $template === 'page-template-cluster.php' ) : ?>
 			<div class="d-inline-block bg-inverse-t-2 p-3 mb-1">
-				<a class="text-inverse text-uppercase letter-spacing-3 font-weight-light" href="<?php echo $clusters_link; ?>"><span class="fa fa-chevron-left mr-2" aria-hidden="true"></span>UCF Faculty Clusters</a>
+				<a class="text-inverse text-uppercase letter-spacing-3 font-weight-light" href="<?php echo $clusters_link; ?>"><span class="fa fa-chevron-left mr-2" aria-hidden="true"></span><?php echo $heading_text; ?></a>
 			</div>
 			<div class="clearfix"></div>
 			<?php endif; ?>
