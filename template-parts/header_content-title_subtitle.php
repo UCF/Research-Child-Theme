@@ -17,7 +17,7 @@ $clusters_link = get_theme_mod( 'clusters_list_page' ) ? get_permalink( get_them
 		<div class="container">
 			<?php if ( $clusters_link && $template && $template === 'page-template-cluster.php' ) : ?>
 			<div class="d-inline-block bg-inverse-t-2 p-3 mb-1">
-				<a class="text-inverse text-uppercase letter-spacing-3 font-weight-light" href="<?php echo $clusters_link; ?>"><span class="fa fa-chevron-left mr-2" aria-hidden="true"></span><?php echo $heading_text; ?></a>
+				<a class="text-inverse text-uppercase letter-spacing-3 font-weight-light" href="<?php echo $clusters_link; ?>"><?php echo $heading_text; ?></a>
 			</div>
 			<div class="clearfix"></div>
 			<?php endif; ?>
