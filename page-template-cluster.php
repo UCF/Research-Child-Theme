@@ -14,6 +14,7 @@ $cluster_programs  = get_field( 'cluster_programs' );
 
 $cluster_colleges_heading = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
 $cluster_colleges_image   = get_field( 'cluster_colleges_image' );
+$cluster_image_classes    = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
 
 $cluster_feed_type  = get_field( 'cluster_news_feed_type' );
 $cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
@@ -69,7 +70,7 @@ get_header(); the_post(); ?>
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 				<section id="cluster-colleges-centers" aria-labelledby="cluster-colleges-centers-heading">
 					<?php if ( $cluster_colleges_image ) : ?>
-					<img src="<?php echo $cluster_colleges_image['url']; ?>" class="img-fluid mb-4" alt="<?php echo $cluster_colleges_image['alt']; ?>">
+					<img src="<?php echo $cluster_colleges_image['url']; ?>" class="img-fluid mb-4<?php echo $cluster_image_classes; ?>" alt="<?php echo $cluster_colleges_image['alt']; ?>">
 					<?php endif; ?>
 					<h2 id="cluster-colleges-centers-heading" class="h5 mb-4"><?php echo $cluster_colleges_heading; ?>:</h2>
 					<ul class="list-unstyled">
