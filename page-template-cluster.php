@@ -9,12 +9,14 @@ $cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_events    = get_field( 'cluster_events_feed' );
 $cluster_social    = get_field( 'cluster_related_tweets' );
-$cluster_prg_copy  = get_field( 'cluster_program_lead_copy' );
-$cluster_programs  = get_field( 'cluster_programs' );
 
-$cluster_colleges_heading = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
-$cluster_colleges_image   = get_field( 'cluster_colleges_image' );
-$cluster_image_classes    = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
+$cluster_academics_heading = get_field( 'cluster_academics_heading' ) ?: "{$post->post_title} Degree Programs";
+$cluster_prg_copy          = get_field( 'cluster_program_lead_copy' );
+$cluster_programs          = get_field( 'cluster_programs' );
+
+$cluster_colleges_heading  = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
+$cluster_colleges_image    = get_field( 'cluster_colleges_image' );
+$cluster_image_classes     = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
 
 $cluster_feed_type  = get_field( 'cluster_news_feed_type' );
 $cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
@@ -172,7 +174,7 @@ get_header(); the_post(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
-					<h2 id="research-programs" class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $post->post_title; ?> Degree Programs</h2>
+					<h2 id="research-programs" class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $cluster_academics_heading; ?></h2>
 					<?php if ( $cluster_prg_copy ) : ?>
 					<div class="mb-5">
 						<p><?php echo $cluster_prg_copy; ?></p>
