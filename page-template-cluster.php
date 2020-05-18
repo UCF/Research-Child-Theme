@@ -66,8 +66,8 @@ get_header(); the_post(); ?>
 					<?php the_content(); ?>
 				</section>
 			</div>
+			<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 			<div class="col-lg-4">
-				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 				<section id="cluster-colleges-centers" aria-labelledby="cluster-colleges-centers-heading">
 					<?php if ( $cluster_colleges_image ) : ?>
 					<img src="<?php echo $cluster_colleges_image['url']; ?>" class="img-fluid mb-4<?php echo $cluster_image_classes; ?>" alt="<?php echo $cluster_colleges_image['alt']; ?>">
@@ -83,8 +83,8 @@ get_header(); the_post(); ?>
 					<?php endforeach; ?>
 					</ul>
 				</section>
-				<?php endif; ?>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<!-- Promo Section One -->
