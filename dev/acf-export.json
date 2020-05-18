@@ -1429,6 +1429,25 @@
                 "mime_types": ""
             },
             {
+                "key": "field_5ec2cd0be15ab",
+                "label": "Images Classes",
+                "name": "cluster_colleges_image_classes",
+                "type": "text",
+                "instructions": "Add additional CSS classes to the Colleges Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
                 "key": "field_5ec2bba9f514a",
                 "label": "Colleges Heading",
                 "name": "cluster_colleges_heading",
