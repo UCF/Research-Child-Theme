@@ -968,13 +968,40 @@
                 "endpoint": 0
             },
             {
+                "key": "field_5ec2deb0b20b2",
+                "label": "Display News",
+                "name": "cluster_display_news",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Allows for the news section to be removed completely.",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
                 "key": "field_5eb02c3cf7105",
                 "label": "News Feed Type",
                 "name": "cluster_news_feed_type",
                 "type": "radio",
                 "instructions": "Choose whether to consume a news feed or curate a specific list of stories.",
                 "required": 1,
-                "conditional_logic": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -1000,6 +1027,11 @@
                 "required": 0,
                 "conditional_logic": [
                     [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        },
                         {
                             "field": "field_5eb02c3cf7105",
                             "operator": "==",
@@ -1027,6 +1059,11 @@
                 "required": 0,
                 "conditional_logic": [
                     [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        },
                         {
                             "field": "field_5eb02c3cf7105",
                             "operator": "==",
@@ -1184,6 +1221,25 @@
                 "min": "",
                 "max": "",
                 "return_format": "object"
+            },
+            {
+                "key": "field_5ec2dcc8ae910",
+                "label": "Academics Section Heading",
+                "name": "cluster_academics_heading",
+                "type": "text",
+                "instructions": "The heading text used in the academics section.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
             },
             {
                 "key": "field_5e6b97d2e9587",

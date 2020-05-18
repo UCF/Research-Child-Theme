@@ -9,16 +9,19 @@ $cluster_leads     = get_field( 'cluster_leads' );
 $cluster_colleges  = get_field( 'cluster_colleges' );
 $cluster_events    = get_field( 'cluster_events_feed' );
 $cluster_social    = get_field( 'cluster_related_tweets' );
-$cluster_prg_copy  = get_field( 'cluster_program_lead_copy' );
-$cluster_programs  = get_field( 'cluster_programs' );
 
-$cluster_colleges_heading = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
-$cluster_colleges_image   = get_field( 'cluster_colleges_image' );
-$cluster_image_classes    = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
+$cluster_academics_heading = get_field( 'cluster_academics_heading' ) ?: "{$post->post_title} Degree Programs";
+$cluster_prg_copy          = get_field( 'cluster_program_lead_copy' );
+$cluster_programs          = get_field( 'cluster_programs' );
 
-$cluster_feed_type  = get_field( 'cluster_news_feed_type' );
-$cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
-$cluster_stories    = get_field( 'cluster_news_stories' );
+$cluster_colleges_heading  = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
+$cluster_colleges_image    = get_field( 'cluster_colleges_image' );
+$cluster_image_classes     = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
+
+$cluster_display_news = get_field( 'cluster_display_news' ) ?: false;
+$cluster_feed_type    = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic   = get_field( 'cluster_news_feed_topic' );
+$cluster_stories      = get_field( 'cluster_news_stories' );
 
 $news = research_get_news( $cluster_stories );
 
@@ -91,11 +94,13 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
+	<?php if ( $cluster_display_news || ! empty( $cluster_social ) ) : ?>
 	<section id="cluster-news" aria-labelledby="cluster-news-heading">
 		<div class="container py-4 py-md-5">
 			<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
 			<hr class="mt-2">
 			<div class="row">
+				<?php if ( $cluster_display_news ) : ?>
 				<div class="col-lg-8">
 					<?php if ( $cluster_feed_type === 'feed' ) : ?>
 					<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
@@ -105,8 +110,9 @@ get_header(); the_post(); ?>
 					</div>
 					<?php endif; ?>
 				</div>
+				<?php endif; ?>
 				<?php if ( ! empty( $cluster_social ) ) : ?>
-				<div class="col-lg-4">
+				<div class="col-lg-<?php echo $cluster_display_news ? '4' : '8'; ?>">
 					<?php foreach( $cluster_social as $embed ) : ?>
 						<?php echo $embed['social_embed']; ?>
 					<?php endforeach; ?>
@@ -115,6 +121,7 @@ get_header(); the_post(); ?>
 			</div>
 		</div>
 	</section>
+	<?php endif; ?>
 	<!-- End News -->
 	<?php if ( ! empty( $research_projects ) ) : ?>
 	<!-- Research Projects -->
@@ -172,7 +179,7 @@ get_header(); the_post(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
-					<h2 id="research-programs" class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $post->post_title; ?> Degree Programs</h2>
+					<h2 id="research-programs" class="h1 mb-4 text-primary font-weight-black section-heading"><?php echo $cluster_academics_heading; ?></h2>
 					<?php if ( $cluster_prg_copy ) : ?>
 					<div class="mb-5">
 						<p><?php echo $cluster_prg_copy; ?></p>
