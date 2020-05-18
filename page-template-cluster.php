@@ -66,7 +66,7 @@ get_header(); the_post(); ?>
 			<div class="col-lg-4">
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
 				<?php if ( $cluster_colleges_image ) : ?>
-				<img src="<?php echo $cluster_colleges_image; ?>" class="img-fluid mb-4" alt="">
+				<img src="<?php echo $cluster_colleges_image['url']; ?>" class="img-fluid mb-4" alt="<?php echo $cluster_colleges_image['alt']; ?>">
 				<?php endif; ?>
 				<h2 class="h5 mb-4"><?php echo $cluster_colleges_heading; ?>:</h2>
 				<ul class="list-unstyled">
