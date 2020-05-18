@@ -18,9 +18,10 @@ $cluster_colleges_heading  = get_field( 'cluster_colleges_heading' ) ?: "UCF Col
 $cluster_colleges_image    = get_field( 'cluster_colleges_image' );
 $cluster_image_classes     = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
 
-$cluster_feed_type  = get_field( 'cluster_news_feed_type' );
-$cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
-$cluster_stories    = get_field( 'cluster_news_stories' );
+$cluster_display_news = get_field( 'cluster_display_news' ) ?: false;
+$cluster_feed_type    = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic   = get_field( 'cluster_news_feed_topic' );
+$cluster_stories      = get_field( 'cluster_news_stories' );
 
 $news = research_get_news( $cluster_stories );
 
@@ -93,11 +94,13 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
+	<?php if ( $cluster_display_news || ! empty( $cluster_social ) ) : ?>
 	<section id="cluster-news" aria-labelledby="cluster-news-heading">
 		<div class="container py-4 py-md-5">
 			<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
 			<hr class="mt-2">
 			<div class="row">
+				<?php if ( $cluster_display_news ) : ?>
 				<div class="col-lg-8">
 					<?php if ( $cluster_feed_type === 'feed' ) : ?>
 					<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
@@ -107,8 +110,9 @@ get_header(); the_post(); ?>
 					</div>
 					<?php endif; ?>
 				</div>
+				<?php endif; ?>
 				<?php if ( ! empty( $cluster_social ) ) : ?>
-				<div class="col-lg-4">
+				<div class="col-lg-<?php echo $cluster_display_news ? '4' : '8'; ?>">
 					<?php foreach( $cluster_social as $embed ) : ?>
 						<?php echo $embed['social_embed']; ?>
 					<?php endforeach; ?>
@@ -117,6 +121,7 @@ get_header(); the_post(); ?>
 			</div>
 		</div>
 	</section>
+	<?php endif; ?>
 	<!-- End News -->
 	<?php if ( ! empty( $research_projects ) ) : ?>
 	<!-- Research Projects -->
