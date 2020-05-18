@@ -12,13 +12,17 @@ $cluster_social    = get_field( 'cluster_related_tweets' );
 $cluster_prg_copy  = get_field( 'cluster_program_lead_copy' );
 $cluster_programs  = get_field( 'cluster_programs' );
 
+$cluster_colleges_heading = get_field( 'cluster_colleges_heading' ) ?: "UCF Colleges Involved with {$post->post_title} Research";
+$cluster_colleges_image   = get_field( 'cluster_colleges_image' );
+
 $cluster_feed_type  = get_field( 'cluster_news_feed_type' );
 $cluster_feed_topic = get_field( 'cluster_news_feed_topic' );
 $cluster_stories    = get_field( 'cluster_news_stories' );
 
 $news = research_get_news( $cluster_stories );
 
-$cluster_faculty = get_field( 'cluster_faculty' );
+$cluster_faculty   = get_field( 'cluster_faculty' ) ?: null;
+$cluster_post_docs = get_field( 'cluster_students' ) ?: null;
 
 
 $section_one        = get_field( 'promotional_section_one' );
@@ -61,7 +65,10 @@ get_header(); the_post(); ?>
 			</div>
 			<div class="col-lg-4">
 				<?php if ( $cluster_colleges && count( $cluster_colleges ) > 0 ) : ?>
-				<h2 class="h5 mb-4">UCF Colleges Involved in <?php echo $post->post_title; ?>:</h2>
+				<?php if ( $cluster_colleges_image ) : ?>
+				<img src="<?php echo $cluster_colleges_image; ?>" class="img-fluid mb-4" alt="">
+				<?php endif; ?>
+				<h2 class="h5 mb-4"><?php echo $cluster_colleges_heading; ?>:</h2>
 				<ul class="list-unstyled">
 				<?php foreach( $cluster_colleges as $college ) : ?>
 					<li class="mb-2">
@@ -179,10 +186,18 @@ get_header(); the_post(); ?>
 	<!-- Faculty -->
 	<section aria-labelledby="faculty-listing" class="jumbotron jumbotron-light mb-0">
 		<div class="container">
+			<?php if ( $cluster_faculty && count( $cluster_faculty ) > 0 ) : ?>
 			<h2 id="faculty-listing" class="h3"><?php echo $post->post_title; ?> Faculty</h2>
 			<div class="pt-4 pb-2">
 				<?php echo research_get_faculty_list( $cluster_faculty ); ?>
 			</div>
+			<?php endif; ?>
+			<?php if ( $cluster_post_docs && count( $cluster_post_docs ) > 0 ) : ?>
+				<h2 id="post-doc-listing" class="h3"><?php echo $post->post_title; ?> Post Doctoral Researchers</h2>
+				<div class="pt-4 pb-2">
+					<?php echo research_get_postdoc_list( $cluster_post_docs ); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 	</section>
 	<!-- End Faculty -->
