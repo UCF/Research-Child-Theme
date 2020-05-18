@@ -90,30 +90,25 @@ get_header(); the_post(); ?>
 	<?php echo ! empty( $section_one ) ? do_shortcode( "[ucf-section id=\"$section_one->ID\" title=\"$section_one_lbl\"]" ) : ''; ?>
 	<!-- End Promo Section One -->
 	<!-- Start News -->
+	<section id="cluster-news" aria-labelledby="cluster-news-heading">
 		<div class="container py-4 py-md-5">
+			<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
+			<hr class="mt-2">
 			<div class="row">
 				<div class="col-lg-8">
-					<section id="cluster-news" aria-labelledby="cluster-news-heading">
-						<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
-						<hr class="mt-2">
-						<?php if ( $cluster_feed_type === 'feed' ) : ?>
-						<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
-						<?php else : ?>
-						<div class="ucf-news modern">
-						<?php foreach( $news as $item ) echo $item; ?>
-						</div>
-						<?php endif; ?>
-					</section>
+					<?php if ( $cluster_feed_type === 'feed' ) : ?>
+					<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
+					<?php else : ?>
+					<div class="ucf-news modern">
+					<?php foreach( $news as $item ) echo $item; ?>
+					</div>
+					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $cluster_social ) ) : ?>
 				<div class="col-lg-4">
-					<section id="cluster-social" aria-labelledby="cluster-social-heading">
-						<h2 class="h1 mb-0"><?php echo $post->post_title; ?> Social</h2>
-						<hr class="mt-2">
-						<?php foreach( $cluster_social as $embed ) : ?>
-							<?php echo $embed['social_embed']; ?>
-						<?php endforeach; ?>
-					</section>
+					<?php foreach( $cluster_social as $embed ) : ?>
+						<?php echo $embed['social_embed']; ?>
+					<?php endforeach; ?>
 				</div>
 				<?php endif; ?>
 			</div>
