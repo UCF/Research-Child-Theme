@@ -127,50 +127,35 @@ get_header(); the_post(); ?>
 	<!-- Research Projects -->
 	<section id="research-projects" aria-labelledby="research-projects-heading">
 		<div class="container">
-			<h2 id="research-projects-heading" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
 			<div class="row">
-			<?php
-				foreach( $research_projects as $project ) :
-					$principle_investigator = get_field( 'rp_principle_investigator', $project->ID );
-					$co_investigators = get_field( 'rp_co_investigators', $project->ID );
-			?>
-				<div class="card col-lg-4 mb-4">
-					<div class="card-block">
-						<div class="card-title">
-							<h3 class="h5"><?php echo $project->post_title; ?></h3>
-							<dl>
-								<dd>Principle Investigator:</dd>
-								<dt><?php echo $principle_investigator->post_title; ?></dt>
-							</dl>
-							<p class="card-text"><?php echo $project->post_excerpt; ?></p>
-						</div>
-					</div>
+				<div class="col-lg-6">
+					<h2 id="research-projects-heading" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
+					<ul class="list-unstyled">
+					<?php foreach( $research_projects as $project ) : ?>
+						<li class="mb-3"><a href="<?php echo get_permalink( $project->ID ); ?>"><?php echo $project->post_title; ?></a></li>
+					<?php endforeach; ?>
+					</ul>
 				</div>
-			<?php endforeach; ?>
+				<div class="col-lg-6">
+				<?php if ( ! empty( $research_publications ) ) : ?>
+				<!-- Research Publications -->
+				<section area-labelledby="research-publications">
+					<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
+					<ul class="list-unstyled">
+					<?php
+						foreach( $research_publications as $publication ) :
+					?>
+						<li class="mb-3"><?php echo Common\get_publication_markup( $publication ); ?></li>
+					<?php endforeach; ?>
+					</ul>
+				</section>
+				<!-- End Research Publications -->
+				<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</section>
 	<!-- End Research Projects -->
-	<?php endif; ?>
-	<?php if ( ! empty( $research_publications ) ) : ?>
-	<!-- Research Publications -->
-	<section area-labelledby="research-publications">
-		<div class="container">
-			<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
-			<div class="card-deck">
-			<?php
-				foreach( $research_publications as $publication ) :
-			?>
-				<div class="card mb-4">
-					<div class="card-block">
-						<?php echo Common\get_publication_markup( $publication ); ?>
-					</div>
-				</div>
-			<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
-	<!-- End Research Publications -->
 	<?php endif; ?>
 	<!-- End Research -->
 	<?php if ( is_array( $cluster_programs ) && ! empty( $cluster_programs ) ) : ?>
