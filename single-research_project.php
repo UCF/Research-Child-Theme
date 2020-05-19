@@ -9,24 +9,27 @@ get_header(); the_post(); ?>
 
 <article class="<?php echo $post->post_status; ?> post-list-item">
 
-    <div class="container mt-4 mt-sm-5 mb-5 pb-sm-4">
+	<div class="container mt-4 mt-sm-5 mb-5 pb-sm-4">
 		<div class="row">
 			<div class="col-lg-8">
 				<?php the_content(); ?>
-            </div>
+			</div>
 
-            <?php if ( $principle_investigator || $investigators ) : ?>
+			<?php if ( $principle_investigator || $investigators ) : ?>
+
 			<div class="col-lg-4">
-                <?php if ( $principle_investigator ) : ?>
-                    <h2 class="h5 heading-underline">Principle Investigator</h2>
-                    <dt>
+				<?php if ( $principle_investigator ) : ?>
+					<h2 class="h5 heading-underline">Principle Investigator</h2>
+					<dt>
 						<?php echo $principle_investigator->person_title_prefix; ?>
 						<?php echo $principle_investigator->post_title; ?>
 						<?php echo $principle_investigator->person_title_suffix; ?>
 					</dt>
+
 					<?php if ( $principle_investigator->person_jobtitle ) : ?>
 						<dd class="mb-0"><?php echo $principle_investigator->person_jobtitle; ?></dd>
 					<?php endif; ?>
+
 					<?php if ( $principle_investigator->person_phone ) : ?>
 						<dd class="mb-0">
 							<a href="tel:<?php echo $principle_investigator->person_phone; ?>">
@@ -34,6 +37,7 @@ get_header(); the_post(); ?>
 							</a>
 						</dd>
 					<?php endif; ?>
+
 					<?php if ( $principle_investigator->person_email ) : ?>
 						<dd class="mb-0">
 							<a href="mailto:<?php echo $principle_investigator->person_email; ?>">
@@ -41,21 +45,23 @@ get_header(); the_post(); ?>
 							</a>
 						</dd>
 					<?php endif; ?>
-                <?php endif; ?>
+				<?php endif; ?>
 
-                <?php if( $investigators ) : ?>
-                    <h2 class="h5 heading-underline mt-4 pt-2 mb-0">Investigators</h2>
+				<?php if( $investigators ) : ?>
+					<h2 class="h5 heading-underline mt-4 pt-2 mb-0">Investigators</h2>
 
-                    <?php foreach( $investigators as $investigator ) : ?>
+					<?php foreach( $investigators as $investigator ) : ?>
 
 						<dt class="pt-3">
 							<?php echo $investigator->person_title_prefix; ?>
 							<?php echo $investigator->post_title; ?>
 							<?php echo $investigator->person_title_suffix; ?>
 						</dt>
+
 						<?php if ( $investigator->person_jobtitle ) : ?>
 							<dd class="mb-0"><?php echo $investigator->person_jobtitle; ?></dd>
 						<?php endif; ?>
+
 						<?php if ( $investigator->person_phone ) : ?>
 							<dd class="mb-0">
 								<a href="tel:<?php echo $investigator->person_phone; ?>">
@@ -63,6 +69,7 @@ get_header(); the_post(); ?>
 								</a>
 							</dd>
 						<?php endif; ?>
+
 						<?php if ( $investigator->person_email ) : ?>
 							<dd class="mb-0">
 								<a href="mailto:<?php echo $investigator->person_email; ?>">
@@ -73,11 +80,10 @@ get_header(); the_post(); ?>
 
 					<?php endforeach; ?>
 
-                    <?php // echo $rp_coprinciple_investigators; ?>
-                <?php endif; ?>
+				<?php endif; ?>
+			</div>
 
-            </div>
-            <?php endif; ?>
+			<?php endif; ?>
 		</div>
 	</div>
 
