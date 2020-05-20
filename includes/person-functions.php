@@ -36,5 +36,5 @@ function research_get_postdoc_list( $post_docs ) {
 	);
 	$args = shortcode_atts( UCF_Post_List_Config::get_shortcode_atts( $layout ), $args, 'ucf-post-list' );
 
-	return UCF_Post_List_Common::display_post_list( $post_docs, 'people', $args );
+	return UCF_Post_List_Common::display_post_list( $post_docs, $layout, $args );
 }
