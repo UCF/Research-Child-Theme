@@ -694,6 +694,13 @@
                     "operator": "==",
                     "value": "all"
                 }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "research_project"
+                }
             ]
         ],
         "menu_order": 0,
