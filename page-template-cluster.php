@@ -134,7 +134,7 @@ get_header(); the_post(); ?>
 				<h3 class="h4 font-weight-black text-uppercase letter-spacing-2 mb-4 pb-2">Projects</h3>
 				<div class="row">
 				<?php foreach( $research_projects as $project ) : ?>
-					<div class="col-md-6 col-lg-4 h-100 mb-4">
+					<div class="col-md-6 col-lg-4 mb-4">
 						<a class="card card-secondary border-0 h-100 text-secondary text-decoration-none media-background-container hover-parent" href="<?php echo get_permalink( $project->ID ); ?>">
 							<div class="media-background bg-primary hover-child-show fade"></div>
 							<div class="card-block p-sm-4">
