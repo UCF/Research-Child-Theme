@@ -123,56 +123,53 @@ get_header(); the_post(); ?>
 	</section>
 	<?php endif; ?>
 	<!-- End News -->
-	<?php if ( ! empty( $research_projects ) ) : ?>
+	<?php if ( ! empty( $research_projects ) || ! empty( $research_publications ) ) : ?>
 	<!-- Research Projects -->
-	<section id="research-projects" aria-labelledby="research-projects-heading">
-		<div class="container">
-			<h2 id="research-projects-heading" class="h3 mb-4"><?php echo $post->post_title; ?> Projects</h2>
-			<div class="row">
-			<?php
-				foreach( $research_projects as $project ) :
-					$principle_investigator = get_field( 'rp_principle_investigator', $project->ID );
-					$co_investigators = get_field( 'rp_co_investigators', $project->ID );
-			?>
-				<div class="card col-lg-4 mb-4">
-					<div class="card-block">
-						<div class="card-title">
-							<h3 class="h5"><?php echo $project->post_title; ?></h3>
-							<dl>
-								<dd>Principle Investigator:</dd>
-								<dt><?php echo $principle_investigator->post_title; ?></dt>
-							</dl>
-							<p class="card-text"><?php echo $project->post_excerpt; ?></p>
-						</div>
+	<section id="research-projects" aria-labelledby="research-heading">
+		<div class="jumbotron bg-faded mb-0">
+			<div class="container">
+				<h2 id="research-heading" class="h1 mb-5"><?php echo $post->post_title; ?> Research</h2>
+
+				<?php if ( ! empty( $research_projects ) ) : ?>
+				<h3 class="h4 font-weight-black text-uppercase letter-spacing-2 mb-4 pb-2">Projects</h3>
+				<div class="row">
+				<?php foreach( $research_projects as $project ) : ?>
+					<div class="col-md-6 col-lg-4 mb-4">
+						<a class="card card-secondary border-0 h-100 text-secondary text-decoration-none media-background-container hover-parent" href="<?php echo get_permalink( $project->ID ); ?>">
+							<div class="media-background bg-primary hover-child-show fade"></div>
+							<div class="card-block p-sm-4">
+								<h4 class="card-title h5 mb-0">
+									<?php echo $project->post_title; ?>
+								</h4>
+								<?php if ( $project->post_excerpt ): ?>
+								<div class="card-text mt-3" style="font-size: .9em;">
+									<?php echo get_the_excerpt( $project->ID ); ?>
+								</div>
+								<?php endif; ?>
+							</div>
+						</a>
 					</div>
+				<?php endforeach; ?>
 				</div>
-			<?php endforeach; ?>
+				<?php endif; ?>
+
+				<?php if ( ! empty( $research_projects ) && ! empty( $research_publications ) ) : ?>
+				<hr class="hr-3 mt-3 mt-sm-4 mb-5 w-50 mx-auto">
+				<?php endif; ?>
+
+				<?php if ( ! empty( $research_publications ) ) : ?>
+				<h3 class="h4 font-weight-black text-uppercase letter-spacing-2 mb-4">Publications</h3>
+				<ul class="list-unstyled">
+				<?php foreach( $research_publications as $publication ) : ?>
+					<li class="mb-3"><?php echo Common\get_publication_markup( $publication ); ?></li>
+				<?php endforeach; ?>
+				</ul>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
-	<!-- End Research Projects -->
-	<?php endif; ?>
-	<?php if ( ! empty( $research_publications ) ) : ?>
-	<!-- Research Publications -->
-	<section area-labelledby="research-publications">
-		<div class="container">
-			<h2 id="research-publications" class="h3 mb-4"><?php echo $post->post_title; ?> Publications</h2>
-			<div class="card-deck">
-			<?php
-				foreach( $research_publications as $publication ) :
-			?>
-				<div class="card mb-4">
-					<div class="card-block">
-						<?php echo Common\get_publication_markup( $publication ); ?>
-					</div>
-				</div>
-			<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
-	<!-- End Research Publications -->
-	<?php endif; ?>
 	<!-- End Research -->
+	<?php endif; ?>
 	<?php if ( is_array( $cluster_programs ) && ! empty( $cluster_programs ) ) : ?>
 	<!-- Start Academics -->
 	<section class="jumbotron bg-inverse text-inverse mb-0" aria-labelledby="research-programs">
