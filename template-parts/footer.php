@@ -3,7 +3,6 @@ if (
 	is_active_sidebar( 'footer-col-1' )
 	|| is_active_sidebar( 'footer-col-2' )
 	|| is_active_sidebar( 'footer-col-3' )
-	|| is_active_sidebar( 'footer-col-4' )
 ):
 ?>
 <footer class="site-footer bg-inverse pt-4 py-md-5" aria-label="Site footer">
@@ -25,12 +24,6 @@ if (
 		<?php if ( is_active_sidebar( 'footer-col-3' ) ): ?>
 			<div class="col-12 col-lg-4 pull-lg-8">
 				<?php dynamic_sidebar( 'footer-col-3' ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( is_active_sidebar( 'footer-col-4' ) ): ?>
-			<div class="col-12 col-lg-4">
-				<?php dynamic_sidebar( 'footer-col-4' ); ?>
 			</div>
 		<?php endif; ?>
 
