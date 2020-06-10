@@ -36,7 +36,7 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 				</picture>
 				<?php endif; ?>
 				<div class="container">
-					<div class="row p-lg-5">
+					<div class="row py-lg-5">
 						<div class="col-12 col-md-6<?php echo $push ? ' offset-md-6' : ''?>">
 							<div class="bg-inverse-t-3 p-5">
 								<h2 class="h4 mt-0 mb-4" id="<?php echo $post->post_name; ?>-heading" aria-label="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></h2>
