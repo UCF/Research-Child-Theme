@@ -21,7 +21,8 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 		$bg_image_sm    = research_cluster_get_header_image( $post->ID );
 		$bg_image_xs    = research_cluster_get_header_image( $post->ID, true );
 
-		$short_desc  = get_field( 'cluster_short_desc', $post->ID ) ?: null;
+		$short_name = get_field( 'cluster_short_name', $post->ID ) ?: $post->post_title;
+		$short_desc = get_field( 'cluster_short_desc', $post->ID ) ?: null;
 
 		$push = $idx % 2 === 0 ? false : true;
 
@@ -42,7 +43,7 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 								<?php if ( $short_desc ) : ?>
 								<?php echo $short_desc; ?>
 								<?php endif; ?>
-								<a class="btn btn-primary mt-4 d-inline-block" href="<?php echo get_permalink( $post->ID ); ?>">Learn More about <?php echo $post->post_title; ?></a>
+								<a class="btn btn-primary mt-4 d-inline-block" href="<?php echo get_permalink( $post->ID ); ?>">Learn More about <?php echo $short_name; ?></a>
 							</div>
 						</div>
 					</div>
