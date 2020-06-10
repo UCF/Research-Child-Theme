@@ -24,8 +24,6 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 		$short_name = get_field( 'cluster_short_name', $post->ID ) ?: $post->post_title;
 		$short_desc = get_field( 'cluster_short_desc', $post->ID ) ?: null;
 
-		$push = $idx % 2 === 0 ? false : true;
-
 	?>
 		<section class="cluster-section" id="<?php echo $post->post_name; ?>" aria-labelledby="<?php echo $post->post_name ?>-heading">
 			<div class="jumbotron jumbotron-fluid co-jumbotron-wrap media-background-container bg-inverse d-flex flex-column justify-content-end justify-content-md-center mb-0 py-3 p-sm-5">
@@ -37,7 +35,7 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 				<?php endif; ?>
 				<div class="container">
 					<div class="row py-lg-5">
-						<div class="col-12 col-md-7<?php echo $push ? ' offset-md-5' : ''?>">
+						<div class="col-12 col-md-7">
 							<div class="bg-inverse-t-3 p-5">
 								<h2 class="h4 mt-0 mb-4" id="<?php echo $post->post_name; ?>-heading" aria-label="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></h2>
 								<?php if ( $short_desc ) : ?>
