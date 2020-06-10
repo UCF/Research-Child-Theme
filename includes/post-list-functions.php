@@ -26,8 +26,8 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 		$push = $idx % 2 === 0 ? false : true;
 
 	?>
-		<section id="<?php echo $post->post_name; ?>" aria-labelledby="<?php echo $post->post_name ?>-heading">
-			<div class="jumbotron jumbotron-fluid co-jumbotron-wrap media-background-container bg-inverse d-flex flex-column justify-content-end justify-content-md-center mb-0 p-0 p-sm-5">
+		<section class="cluster-section" id="<?php echo $post->post_name; ?>" aria-labelledby="<?php echo $post->post_name ?>-heading">
+			<div class="jumbotron jumbotron-fluid co-jumbotron-wrap media-background-container bg-inverse d-flex flex-column justify-content-end justify-content-md-center mb-0 py-3 p-sm-5">
 				<?php if ( $bg_image_sm && $bg_image_xs ) : ?>
 				<picture>
 					<source media="(min-width: 575px)" srcset="<?php echo $bg_image_sm; ?>">
