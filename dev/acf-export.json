@@ -1823,6 +1823,25 @@
                 "endpoint": 0
             },
             {
+                "key": "field_5ee12c9a4b1e3",
+                "label": "Short Name",
+                "name": "cluster_short_name",
+                "type": "text",
+                "instructions": "A shortened name of the cluster. Is used in the button text when the cluster is listed with the other faculty clusters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
                 "key": "field_5ebc072991ca8",
                 "label": "Short Description",
                 "name": "cluster_short_desc",
