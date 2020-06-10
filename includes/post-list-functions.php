@@ -41,7 +41,7 @@ if ( ! function_exists( 'research_clusters_layout_content' ) ) {
 							<div class="bg-inverse-t-3 p-5">
 								<h2 class="h4 mt-0 mb-4" id="<?php echo $post->post_name; ?>-heading" aria-label="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></h2>
 								<?php if ( $short_desc ) : ?>
-								<?php echo $short_desc; ?>
+								<?php echo wpautop( $short_desc ); ?>
 								<?php endif; ?>
 								<a class="btn btn-primary mt-4 d-inline-block" href="<?php echo get_permalink( $post->ID ); ?>">Learn More about <?php echo $short_name; ?></a>
 							</div>
