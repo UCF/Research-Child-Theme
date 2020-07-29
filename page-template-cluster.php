@@ -18,10 +18,18 @@ $cluster_colleges_heading  = get_field( 'cluster_colleges_heading' ) ?: "UCF Col
 $cluster_colleges_image    = get_field( 'cluster_colleges_image' );
 $cluster_image_classes     = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
 
-$cluster_display_news = get_field( 'cluster_display_news' ) ?: false;
-$cluster_feed_type    = get_field( 'cluster_news_feed_type' );
-$cluster_feed_topic   = get_field( 'cluster_news_feed_topic' );
-$cluster_stories      = get_field( 'cluster_news_stories' );
+$cluster_display_news   = get_field( 'cluster_display_news' ) ?: false;
+$cluster_feed_type      = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic     = get_field( 'cluster_news_feed_topic' );
+$cluster_stories        = get_field( 'cluster_news_stories' );
+$cluster_more_news_text = get_field( 'cluster_news_link_text' );
+if ( ! $cluster_more_news_text && $cluster_feed_type !== 'curate' ) {
+	$cluster_more_news_text = 'See more stories on UCF Today';
+}
+$cluster_more_news_url  = get_field( 'cluster_news_link_url' );
+if ( ! $cluster_more_news_url && $cluster_feed_type !== 'curate' && $cluster_feed_topic ) {
+	$cluster_more_news_url = "https://www.ucf.edu/news/tag/$cluster_feed_topic/";
+}
 
 $news = research_get_news( $cluster_stories );
 
@@ -97,7 +105,20 @@ get_header(); the_post(); ?>
 	<?php if ( $cluster_display_news || ! empty( $cluster_social ) ) : ?>
 	<section id="cluster-news" aria-labelledby="cluster-news-heading">
 		<div class="container py-4 py-md-5">
-			<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
+			<div class="row justify-content-between align-items-end">
+				<div class="col-auto">
+					<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
+				</div>
+				<?php if ( $cluster_more_news_text && $cluster_more_news_url ): ?>
+				<div class="col-auto">
+					<p class="mb-0">
+						<a class="h6 text-uppercase mb-0 text-default" href="<?php echo $cluster_more_news_url; ?>">
+							<?php echo $cluster_more_news_text; ?> <span class="fa fa-external-link text-primary" aria-hidden="true"></span>
+						</a>
+					</p>
+				</div>
+				<?php endif; ?>
+			</div>
 			<hr class="mt-2">
 			<div class="row">
 				<?php if ( $cluster_display_news ) : ?>
