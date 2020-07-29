@@ -1304,7 +1304,7 @@
                 "label": "More News Link Text",
                 "name": "cluster_news_link_text",
                 "type": "text",
-                "instructions": "Customize the \"Check out more stories\" link text displayed next to the \"In The News\" heading.  If the \"News Feed Type\" field above is set to \"Curated List\", this field must be set for the link to be displayed.",
+                "instructions": "Overrides the \"Explore the News Archive\" link text displayed next to the \"In The News\" heading.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -1323,7 +1323,7 @@
                 "label": "More News Link URL",
                 "name": "cluster_news_link_url",
                 "type": "text",
-                "instructions": "Customize the \"Check out more stories\" link URL displayed next to the \"In The News\" heading.  If the \"News Feed Type\" field above is set to \"Curated List\", this field must be set for the link to be displayed.",
+                "instructions": "Customize the \"Explore the News Archive\" link URL displayed next to the \"In The News\" heading.  If the \"News Feed Type\" field above is set to \"Curated List\", this field <em>must<\/em> be set for the link to be displayed.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
