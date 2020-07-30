@@ -116,7 +116,7 @@ get_header(); the_post(); ?>
 					<?php endif; ?>
 
 					<?php if ( $cluster_more_news_text && $cluster_more_news_url ): ?>
-					<p class="text-right mt-4">
+					<p class="text-right my-4">
 						<a class="h6 text-uppercase mb-0 text-default" href="<?php echo $cluster_more_news_url; ?>" _target="blank">
 							<?php echo $cluster_more_news_text; ?><span class="fa fa-external-link text-primary ml-2" aria-hidden="true"></span>
 						</a>
