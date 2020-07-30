@@ -102,20 +102,7 @@ get_header(); the_post(); ?>
 	<?php if ( $cluster_display_news || ! empty( $cluster_social ) ) : ?>
 	<section id="cluster-news" aria-labelledby="cluster-news-heading">
 		<div class="container py-4 py-md-5">
-			<div class="row justify-content-between align-items-end">
-				<div class="col-auto">
-					<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
-				</div>
-				<?php if ( $cluster_more_news_text && $cluster_more_news_url ): ?>
-				<div class="col-auto">
-					<p class="mb-0">
-						<a class="h6 text-uppercase mb-0 text-default" href="<?php echo $cluster_more_news_url; ?>" _target="blank">
-							<?php echo $cluster_more_news_text; ?><span class="fa fa-external-link text-primary ml-2" aria-hidden="true"></span>
-						</a>
-					</p>
-				</div>
-				<?php endif; ?>
-			</div>
+			<h2 id="cluster-news-heading" class="h1 mb-0">In The News</h2>
 			<hr class="mt-2">
 			<div class="row">
 				<?php if ( $cluster_display_news ) : ?>
@@ -126,6 +113,14 @@ get_header(); the_post(); ?>
 					<div class="ucf-news modern">
 					<?php foreach( $news as $item ) echo $item; ?>
 					</div>
+					<?php endif; ?>
+
+					<?php if ( $cluster_more_news_text && $cluster_more_news_url ): ?>
+					<p class="text-right mt-4">
+						<a class="h6 text-uppercase mb-0 text-default" href="<?php echo $cluster_more_news_url; ?>" _target="blank">
+							<?php echo $cluster_more_news_text; ?><span class="fa fa-external-link text-primary ml-2" aria-hidden="true"></span>
+						</a>
+					</p>
 					<?php endif; ?>
 				</div>
 				<?php endif; ?>
