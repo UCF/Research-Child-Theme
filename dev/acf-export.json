@@ -1300,6 +1300,44 @@
                 ]
             },
             {
+                "key": "field_5f219261e420d",
+                "label": "More News Link Text",
+                "name": "cluster_news_link_text",
+                "type": "text",
+                "instructions": "Overrides the \"Explore the News Archive\" link text displayed next to the \"In The News\" heading.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f2195e7e420e",
+                "label": "More News Link URL",
+                "name": "cluster_news_link_url",
+                "type": "text",
+                "instructions": "Customize the \"Explore the News Archive\" link URL displayed next to the \"In The News\" heading.  If the \"News Feed Type\" field above is set to \"Curated List\", this field <em>must<\/em> be set for the link to be displayed.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
                 "key": "field_5e6b9712aa2b3",
                 "label": "Research",
                 "name": "",

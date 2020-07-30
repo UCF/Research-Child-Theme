@@ -18,10 +18,15 @@ $cluster_colleges_heading  = get_field( 'cluster_colleges_heading' ) ?: "UCF Col
 $cluster_colleges_image    = get_field( 'cluster_colleges_image' );
 $cluster_image_classes     = get_field( 'cluster_colleges_image_classes' ) ? ' ' . get_field( 'cluster_colleges_image_classes' ) : '';
 
-$cluster_display_news = get_field( 'cluster_display_news' ) ?: false;
-$cluster_feed_type    = get_field( 'cluster_news_feed_type' );
-$cluster_feed_topic   = get_field( 'cluster_news_feed_topic' );
-$cluster_stories      = get_field( 'cluster_news_stories' );
+$cluster_display_news   = get_field( 'cluster_display_news' ) ?: false;
+$cluster_feed_type      = get_field( 'cluster_news_feed_type' );
+$cluster_feed_topic     = get_field( 'cluster_news_feed_topic' );
+$cluster_stories        = get_field( 'cluster_news_stories' );
+$cluster_more_news_text = get_field( 'cluster_news_link_text' ) ?: 'Explore the News Archive';
+$cluster_more_news_url  = get_field( 'cluster_news_link_url' );
+if ( ! $cluster_more_news_url && $cluster_feed_type !== 'curate' && $cluster_feed_topic ) {
+	$cluster_more_news_url = "https://www.ucf.edu/news/tag/$cluster_feed_topic/";
+}
 
 $news = research_get_news( $cluster_stories );
 
@@ -108,6 +113,14 @@ get_header(); the_post(); ?>
 					<div class="ucf-news modern">
 					<?php foreach( $news as $item ) echo $item; ?>
 					</div>
+					<?php endif; ?>
+
+					<?php if ( $cluster_more_news_text && $cluster_more_news_url ): ?>
+					<p class="text-right my-4">
+						<a class="h6 text-uppercase mb-0 text-default" href="<?php echo $cluster_more_news_url; ?>" _target="blank">
+							<?php echo $cluster_more_news_text; ?><span class="fa fa-external-link text-primary ml-2" aria-hidden="true"></span>
+						</a>
+					</p>
 					<?php endif; ?>
 				</div>
 				<?php endif; ?>
