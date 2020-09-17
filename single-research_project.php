@@ -2,8 +2,8 @@
 
 use UCFResearchPublication\Common;
 
-$principle_investigator    = get_field( 'rp_principle_investigator', $post->ID );
-$investigators = get_field( 'rp_coprinciple_investigators', $post->ID );
+$principal_investigator    = get_field( 'rp_principal_investigator', $post->ID );
+$investigators = get_field( 'rp_coprincipal_investigators', $post->ID );
 
 get_header(); the_post(); ?>
 
@@ -15,34 +15,34 @@ get_header(); the_post(); ?>
 				<?php the_content(); ?>
 			</div>
 
-			<?php if ( $principle_investigator || $investigators ) : ?>
+			<?php if ( $principal_investigator || $investigators ) : ?>
 
 			<div class="col-lg-4 mt-4 mt-lg-0">
-				<?php if ( $principle_investigator ) : ?>
-					<h2 class="h5 heading-underline">Principle Investigator</h2>
+				<?php if ( $principal_investigator ) : ?>
+					<h2 class="h5 heading-underline">Principal Investigator</h2>
 					<dl>
 						<dt>
-							<?php echo $principle_investigator->person_title_prefix; ?>
-							<?php echo $principle_investigator->post_title; ?>
-							<?php echo $principle_investigator->person_title_suffix; ?>
+							<?php echo $principal_investigator->person_title_prefix; ?>
+							<?php echo $principal_investigator->post_title; ?>
+							<?php echo $principal_investigator->person_title_suffix; ?>
 						</dt>
 
-						<?php if ( $principle_investigator->person_jobtitle ) : ?>
-							<dd class="mb-0"><?php echo $principle_investigator->person_jobtitle; ?></dd>
+						<?php if ( $principal_investigator->person_jobtitle ) : ?>
+							<dd class="mb-0"><?php echo $principal_investigator->person_jobtitle; ?></dd>
 						<?php endif; ?>
 
-						<?php if ( $principle_investigator->person_phone ) : ?>
+						<?php if ( $principal_investigator->person_phone ) : ?>
 							<dd class="mb-0">
-								<a href="tel:<?php echo preg_replace("/[^0-9,.]/", "", $principle_investigator->person_phone ); ?>">
-									<?php echo $principle_investigator->person_phone; ?>
+								<a href="tel:<?php echo preg_replace("/[^0-9,.]/", "", $principal_investigator->person_phone ); ?>">
+									<?php echo $principal_investigator->person_phone; ?>
 								</a>
 							</dd>
 						<?php endif; ?>
 
-						<?php if ( $principle_investigator->person_email ) : ?>
+						<?php if ( $principal_investigator->person_email ) : ?>
 							<dd class="mb-0">
-								<a href="mailto:<?php echo $principle_investigator->person_email; ?>">
-									<?php echo $principle_investigator->person_email; ?>
+								<a href="mailto:<?php echo $principal_investigator->person_email; ?>">
+									<?php echo $principal_investigator->person_email; ?>
 								</a>
 							</dd>
 						<?php endif; ?>
