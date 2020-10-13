@@ -1,0 +1,2135 @@
+[
+    {
+        "key": "group_58f7a73f5fecc",
+        "title": "Page Header Fields",
+        "fields": [
+            {
+                "key": "field_590ca423f6654",
+                "label": "Header Content",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_59aed971c187c",
+                "label": "Header Content - Type of Content",
+                "name": "page_header_content_type",
+                "type": "radio",
+                "instructions": "Specify the type of content that should be displayed within the header.  Choose \"Title and subtitle\" to display a styled page title and optional subtitle, or choose \"Custom content\" to add any arbitrary content.  If \"Custom content\" is selected, a page title and subtitle are NOT included by default and should be added manually.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "title_subtitle": "Title and subtitle",
+                    "custom": "Custom content"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "title_subtitle",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_58fe096728bcc",
+                "label": "Header Title Text",
+                "name": "page_header_title",
+                "type": "text",
+                "instructions": "Overrides the page title.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "title_subtitle"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58fe097f28bcd",
+                "label": "Header Subtitle Text",
+                "name": "page_header_subtitle",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "title_subtitle"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5a0e009ff592e",
+                "label": "Page h1",
+                "name": "page_header_h1",
+                "type": "radio",
+                "instructions": "Specify which part of the page title to use as the h1 for the page.  Styling of the title\/subtitle will not be affected by this choice.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "title_subtitle"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "title": "Title Text",
+                    "subtitle": "Subtitle Text"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "title",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_59aed93dc187b",
+                "label": "Header Custom Contents",
+                "name": "page_header_content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59aed971c187c",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_590ca453f6655",
+                "label": "Header Size",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_590ca47bf6656",
+                "label": "Header Height (sm+)",
+                "name": "page_header_height",
+                "type": "radio",
+                "instructions": "Height of the page header at the -sm breakpoint and above.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "header-media-default": "Default (500px)",
+                    "header-media-fullscreen": "Fullscreen"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "header-media-default",
+                "layout": "vertical",
+                "return_format": "value"
+            },
+            {
+                "key": "field_590ca625f6657",
+                "label": "Header Images",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58f7a778185ef",
+                "label": "Header Image (-sm+)",
+                "name": "page_header_image",
+                "type": "image",
+                "instructions": "Header image to display at the -sm breakpoint and up.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img-sm",
+                "library": "all",
+                "min_width": 1200,
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_58f7a7b8185f0",
+                "label": "Header Image (-xs)",
+                "name": "page_header_image_xs",
+                "type": "image",
+                "instructions": "Header image to display at the -xs breakpoint.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "header-img",
+                "library": "all",
+                "min_width": 575,
+                "min_height": 575,
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "png,jpg,jpeg"
+            },
+            {
+                "key": "field_590ca64ef6659",
+                "label": "Header Video",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_58fe08bf28bc9",
+                "label": "Header Video (MP4)",
+                "name": "page_header_mp4",
+                "type": "file",
+                "instructions": "If a MP4 video is defined, video will be used instead of an image in the header at the -sm breakpoint and higher.  Note that videos will never be displayed at the -xs breakpoint, so a fallback header image should always be provided when using video.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp4"
+            },
+            {
+                "key": "field_58fe08ff28bca",
+                "label": "Header Video (WebM)",
+                "name": "page_header_webm",
+                "type": "file",
+                "instructions": "Supplemental video format used by supported browsers for optimized performance.  Note that a MP4 must at least be provided for video to be displayed in the header.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "webm"
+            },
+            {
+                "key": "field_590c84c7a1360",
+                "label": "Header Video Loop",
+                "name": "page_header_video_loop",
+                "type": "true_false",
+                "instructions": "If checked, and a header video is available, the header video will loop indefinitely.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Loop video indefinitely",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5a564fecfb51d",
+                "label": "Navigation",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5a0dead0cd525",
+                "label": "Exclude Primary Site Navigation",
+                "name": "page_header_exclude_nav",
+                "type": "true_false",
+                "instructions": "Controls whether or not the primary site navigation should be displayed at the top of the page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Exclude site navigation",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5a56501afb51e",
+                "label": "Include Subnavigation",
+                "name": "page_header_include_subnav",
+                "type": "true_false",
+                "instructions": "Enable this setting to display an affixed subnavigation bar below the page header.  Requires the Automatic Sections Menu plugin to be activated, and for at least one section within the page's content to be configured to appear in the navbar.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Include subnavigation",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5d655b35e8948",
+                "label": "Subnavigation Link Population",
+                "name": "page_header_subnav_link_population",
+                "type": "select",
+                "instructions": "Specify how links in the subnavigation menu should be populated.  By default, the menu will be populated automatically based on sections included in the page.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5a56501afb51e",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "automatic": "Automatic link detection",
+                    "custom": "Use a custom set of links"
+                },
+                "default_value": [
+                    "automatic"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_5d655bc3e8949",
+                "label": "Custom Subnavigation Links",
+                "name": "page_header_subnav_links",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5d655b35e8948",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5d655d3ee894a",
+                "min": 1,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add Link",
+                "sub_fields": [
+                    {
+                        "key": "field_5d655f1ae894e",
+                        "label": "General",
+                        "name": "",
+                        "type": "tab",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "placement": "top",
+                        "endpoint": 0
+                    },
+                    {
+                        "key": "field_5d655d58e894b",
+                        "label": "URL",
+                        "name": "href",
+                        "type": "text",
+                        "instructions": "Accepts a standard URL (e.g. \"https:\/\/www.ucf.edu\/\") or page anchor (\"#my-anchor\").",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d655d3ee894a",
+                        "label": "Link Text",
+                        "name": "link_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d655dabe894c",
+                        "label": "Open Link in New Window",
+                        "name": "new_window",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "",
+                        "default_value": 0,
+                        "ui": 0,
+                        "ui_on_text": "",
+                        "ui_off_text": ""
+                    },
+                    {
+                        "key": "field_5d655e17e894d",
+                        "label": "Relationships (\"rel\" Attribute)",
+                        "name": "rel",
+                        "type": "text",
+                        "instructions": "Add a list of link types, separated by a single space (e.g. \"noopener nofollow\").  See <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Link_types\">link types information<\/a> for more information.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "70",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d655f32e894f",
+                        "label": "Advanced",
+                        "name": "",
+                        "type": "tab",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "placement": "top",
+                        "endpoint": 0
+                    },
+                    {
+                        "key": "field_5d655f61e8950",
+                        "label": "List Item CSS Class",
+                        "name": "li_class",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d655f70e8951",
+                        "label": "Link CSS Class",
+                        "name": "a_class",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5d656452a22fa",
+                        "label": "Layout",
+                        "name": "layout",
+                        "type": "text",
+                        "instructions": "Specify a custom layout for how this individual link is displayed.  Requires a custom layout to be registered for Section Menu Items in the Automatic Section Menus plugin.  See the <a href=\"https:\/\/github.com\/UCF\/Section-Menus-Shortcode\/wiki\/Customization\" target=\"_blank\">Automatic Section Menus plugin documentation<\/a> for more information.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5ebea156f5509",
+                "label": "Grouping Navigation",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5ebea17ef550a",
+                "label": "Group Navigation Text",
+                "name": "group_navigation_text",
+                "type": "text",
+                "instructions": "When this field and the page below are defined, an additional link will be added into the header allowing users to browse back to a group or listing page.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ebea1e4f550b",
+                "label": "Group Navigation Page",
+                "name": "group_navigation_page",
+                "type": "page_link",
+                "instructions": "The page the group navigation link will go to.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "page"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "allow_archives": 0,
+                "multiple": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "all"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "research_project"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5b56304a509c9",
+        "title": "Person Fields",
+        "fields": [
+            {
+                "key": "field_5b577c6238612",
+                "label": "Title Prefix",
+                "name": "person_title_prefix",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b577cbd38613",
+                "label": "Title Suffix",
+                "name": "person_title_suffix",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b563216fec03",
+                "label": "Job Title",
+                "name": "person_jobtitle",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b563259a2356",
+                "label": "Email",
+                "name": "person_email",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_5b5632763853a",
+                "label": "Phone",
+                "name": "person_phone",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5b563055054fb",
+                "label": "Order By Name",
+                "name": "person_orderby_name",
+                "type": "text",
+                "instructions": "The name by which this person should be sorted when people are displayed in alphabetical lists.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "person"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e68f414e8f6a",
+        "title": "Research Cluster - Interstitial Fields",
+        "fields": [
+            {
+                "key": "field_5e6a4cbb82e7b",
+                "label": "Promotional Section - One",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f41c8ee7c",
+                "label": "Section",
+                "name": "promotional_section_one",
+                "type": "post_object",
+                "instructions": "Select the promotional section to insert.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "ucf_section"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6a4d8782e80",
+                "label": "Section Label",
+                "name": "promotional_section_one_label",
+                "type": "text",
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f41c8ee7c",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6a4cea82e7c",
+                "label": "Promotional Section - Two",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f49b4e127",
+                "label": "Section",
+                "name": "promotional_section_two",
+                "type": "post_object",
+                "instructions": "Select the promotional section to insert.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "ucf_section"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6a4d5682e7f",
+                "label": "Section Label",
+                "name": "promotional_section_two_label",
+                "type": "text",
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f49b4e127",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6a4d0482e7d",
+                "label": "Promotional Section - Footer",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e68f4c74e128",
+                "label": "Section",
+                "name": "promotional_section_footer",
+                "type": "post_object",
+                "instructions": "Select the promotional section to insert above the footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "ucf_section"
+                ],
+                "taxonomy": "",
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5e6a4d1a82e7e",
+                "label": "Section Label",
+                "name": "promotional_section_footer_label",
+                "type": "text",
+                "instructions": "The label of the promotional section. Required for accessibility.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5e68f4c74e128",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                },
+                {
+                    "param": "current_user_role",
+                    "operator": "==",
+                    "value": "administrator"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                },
+                {
+                    "param": "current_user_role",
+                    "operator": "==",
+                    "value": "super_admin"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_5e6a6df06c71e",
+        "title": "Research Cluster Fields",
+        "fields": [
+            {
+                "key": "field_5e6b94250d197",
+                "label": "News",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5ec2deb0b20b2",
+                "label": "Display News",
+                "name": "cluster_display_news",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Allows for the news section to be removed completely.",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5eb02c3cf7105",
+                "label": "News Feed Type",
+                "name": "cluster_news_feed_type",
+                "type": "radio",
+                "instructions": "Choose whether to consume a news feed or curate a specific list of stories.",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "feed": "Today Feed",
+                    "curate": "Curated List"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "feed",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5eb02cadf7106",
+                "label": "News Feed Topic",
+                "name": "cluster_news_feed_topic",
+                "type": "text",
+                "instructions": "Enter the topic to filter news by.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_5eb02c3cf7105",
+                            "operator": "==",
+                            "value": "feed"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6b94390d198",
+                "label": "News Stories",
+                "name": "cluster_news_stories",
+                "type": "repeater",
+                "instructions": "Select the news stories to display for this cluster.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5ec2deb0b20b2",
+                            "operator": "==",
+                            "value": "1"
+                        },
+                        {
+                            "field": "field_5eb02c3cf7105",
+                            "operator": "==",
+                            "value": "curate"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6b945d0d199",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6b945d0d199",
+                        "label": "Story Source",
+                        "name": "story_source",
+                        "type": "radio",
+                        "instructions": "Select the source of the news story.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "today": "UCF Today",
+                            "pegasus": "Pegasus Magazine"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "today",
+                        "layout": "vertical",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
+                        "key": "field_5e6b94bd0d19a",
+                        "label": "Today URL",
+                        "name": "today_url",
+                        "type": "url",
+                        "instructions": "The URL of the Today story.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "today"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6b94de0d19b",
+                        "label": "Pegasus URL",
+                        "name": "pegasus_url",
+                        "type": "url",
+                        "instructions": "The URL of the Pegasus Magazine story.",
+                        "required": 1,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5e6b945d0d199",
+                                    "operator": "==",
+                                    "value": "pegasus"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5f219261e420d",
+                "label": "More News Link Text",
+                "name": "cluster_news_link_text",
+                "type": "text",
+                "instructions": "Overrides the \"Explore the News Archive\" link text displayed next to the \"In The News\" heading.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f2195e7e420e",
+                "label": "More News Link URL",
+                "name": "cluster_news_link_url",
+                "type": "text",
+                "instructions": "Customize the \"Explore the News Archive\" link URL displayed next to the \"In The News\" heading.  If the \"News Feed Type\" field above is set to \"Curated List\", this field <em>must<\/em> be set for the link to be displayed.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6b9712aa2b3",
+                "label": "Research",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6b9726aa2b4",
+                "label": "Projects",
+                "name": "cluster_projects",
+                "type": "relationship",
+                "instructions": "Select the research projects for this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "research_project"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
+            },
+            {
+                "key": "field_5e6b9778aa2b6",
+                "label": "Publications",
+                "name": "cluster_publications",
+                "type": "relationship",
+                "instructions": "Select the publications related to this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "research_publication"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": "",
+                "max": "",
+                "return_format": "object"
+            },
+            {
+                "key": "field_5ec2dcc8ae910",
+                "label": "Academics Section Heading",
+                "name": "cluster_academics_heading",
+                "type": "text",
+                "instructions": "The heading text used in the academics section.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e6b97d2e9587",
+                "label": "Academics",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5ea2fb29f58cf",
+                "label": "Program Lead Copy",
+                "name": "cluster_program_lead_copy",
+                "type": "textarea",
+                "instructions": "The text to display above the degree search. Limited to one paragraph of no more than 300 characters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": 300,
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5e6b97e5e9588",
+                "label": "Programs",
+                "name": "cluster_programs",
+                "type": "repeater",
+                "instructions": "List the programs associated with this research cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6b981de958a",
+                "min": 0,
+                "max": 10,
+                "layout": "row",
+                "button_label": "Add Program",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6b97fee9589",
+                        "label": "Program URL",
+                        "name": "program_url",
+                        "type": "url",
+                        "instructions": "Enter the URL of the program profile page.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5e6b981de958a",
+                        "label": "Program Name",
+                        "name": "program_name",
+                        "type": "text",
+                        "instructions": "Enter the program name.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6b9843e958b",
+                "label": "Researchers",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e7a44dc70c2d",
+                "label": "Cluster Leads",
+                "name": "cluster_leads",
+                "type": "repeater",
+                "instructions": "List the lead faculty members of this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e7a450170c2e",
+                "min": 1,
+                "max": 0,
+                "layout": "row",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e7a450170c2e",
+                        "label": "Cluster Lead",
+                        "name": "cluster_lead",
+                        "type": "post_object",
+                        "instructions": "Select the faculty cluster lead.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+                            "person"
+                        ],
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "object",
+                        "ui": 1
+                    },
+                    {
+                        "key": "field_5e7a452c70c2f",
+                        "label": "Cluster Lead Full Title",
+                        "name": "cluster_lead_title",
+                        "type": "text",
+                        "instructions": "The full title of the faculty cluster lead.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6b9851e958c",
+                "label": "Faculty",
+                "name": "cluster_faculty",
+                "type": "relationship",
+                "instructions": "List the faculty members associated with this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": 1,
+                "max": 20,
+                "return_format": "object"
+            },
+            {
+                "key": "field_5e6b989be958e",
+                "label": "Post Docs and Students",
+                "name": "cluster_students",
+                "type": "relationship",
+                "instructions": "Select the post docs and students associated with this cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "person"
+                ],
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "elements": "",
+                "min": 0,
+                "max": 20,
+                "return_format": "object"
+            },
+            {
+                "key": "field_5ec2bbd9f514b",
+                "label": "Colleges Image",
+                "name": "cluster_colleges_image",
+                "type": "image",
+                "instructions": "Adds an image above the college heading.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5ec2cd0be15ab",
+                "label": "Images Classes",
+                "name": "cluster_colleges_image_classes",
+                "type": "text",
+                "instructions": "Add additional CSS classes to the Colleges Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ec2bba9f514a",
+                "label": "Colleges Heading",
+                "name": "cluster_colleges_heading",
+                "type": "text",
+                "instructions": "The heading above the colleges\/centers listing.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e7a45c769d29",
+                "label": "Associated Colleges and Centers",
+                "name": "cluster_colleges",
+                "type": "repeater",
+                "instructions": "List the colleges and centers associated with this research cluster.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e7a45de69d2a",
+                "min": 1,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_5e7a45de69d2a",
+                        "label": "Name",
+                        "name": "college_name",
+                        "type": "text",
+                        "instructions": "The name of the college or center.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5e7a45f669d2b",
+                        "label": "URL",
+                        "name": "college_url",
+                        "type": "url",
+                        "instructions": "The homepage of the college or center.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5e6b99453eeb7",
+                "label": "Events",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6a99b40bf97",
+                "label": "Events Feed",
+                "name": "cluster_events_feed",
+                "type": "url",
+                "instructions": "The URL of the events calendar to display.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5e6b99543eeb8",
+                "label": "Social Media",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5e6a6dfeedd8e",
+                "label": "Related Social",
+                "name": "cluster_related_tweets",
+                "type": "repeater",
+                "instructions": "Add the URLs to relevant tweet or facebook posts.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_5e6a6e3bedd8f",
+                "min": 0,
+                "max": 0,
+                "layout": "row",
+                "button_label": "Add Social Post",
+                "sub_fields": [
+                    {
+                        "key": "field_5e6a6e3bedd8f",
+                        "label": "Social Post",
+                        "name": "social_embed",
+                        "type": "oembed",
+                        "instructions": "Paste in the URL of the Facebook post or tweet.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "width": "",
+                        "height": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_5ebc071991ca7",
+                "label": "Cluster Listing",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_5ee12c9a4b1e3",
+                "label": "Short Name",
+                "name": "cluster_short_name",
+                "type": "text",
+                "instructions": "A shortened name of the cluster. Is used in the button text when the cluster is listed with the other faculty clusters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ebc072991ca8",
+                "label": "Short Description",
+                "name": "cluster_short_desc",
+                "type": "textarea",
+                "instructions": "The description that is shown when the cluster is listed with the other faculty clusters.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    },
+    {
+        "key": "group_58f8d037a370f",
+        "title": "Section Fields",
+        "fields": [
+            {
+                "key": "field_58f8d03d1abb3",
+                "label": "Background Color",
+                "name": "section_background_color",
+                "type": "select",
+                "instructions": "Select the background color of the section.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "custom": "Custom color",
+                    "bg-primary": "Gold (brand-primary)",
+                    "bg-secondary": "White (brand-secondary)",
+                    "bg-inverse": "Black (brand-inverse)",
+                    "bg-default": "Gray (brand-default)",
+                    "bg-primary-darkest": "Gold Darkest (brand-primary-darkest)",
+                    "bg-primary-darker": "Gold Darker (brand-primary-darker)",
+                    "bg-primary-lighter": "Gold Lighter (brand-primary-lighter)",
+                    "bg-primary-lightest": "Gold Lightest (brand-primary-lightest)",
+                    "bg-metallic-darkest": "Metallic Gold Darkest (brand-metallic-darkest)",
+                    "bg-metallic-darker": "Metallic Gold Darker (brand-metallic-darker)",
+                    "bg-metallic": "Metallic Gold (brand-metallic)",
+                    "bg-metallic-lighter": "Metallic Gold Lighter (brand-metallic-lighter)",
+                    "bg-metallic-lightest": "Metallic Gold Lightest (brand-metallic-lightest)",
+                    "bg-complementary": "Blue (brand-complementary)",
+                    "bg-success": "Green (brand-success)",
+                    "bg-info": "Light Blue (brand-info)",
+                    "bg-warning": "Orange (brand-warning)",
+                    "bg-danger": "Red (brand-danger)"
+                },
+                "default_value": [],
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_59088a54aa936",
+                "label": "Custom Background Color",
+                "name": "section_background_color_custom",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_58f8d03d1abb3",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_59089420aa937",
+                "label": "Text Color",
+                "name": "section_text_color",
+                "type": "select",
+                "instructions": "Override the default text color within the section.\r\n\r\nNote that if you picked a predefined color in the Background Color field, an accessible text color will already be applied.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "custom": "Custom color",
+                    "text-primary": "Gold (brand-primary)",
+                    "text-secondary": "Black (brand-secondary)",
+                    "text-inverse": "White (brand-inverse)",
+                    "text-default": "Gray (brand-default)",
+                    "text-primary-aw": "Gold AW (brand-primary, against-white accessible)",
+                    "text-secondary-aw": "Black AW (brand-secondary, against-white accessible)",
+                    "text-inverse-aw": "White AW (brand-inverse, against-white accessible)",
+                    "text-default-aw": "Gray AW (brand-default, against-white accessible)",
+                    "text-primary-darkest": "Gold Darkest (brand-primary-darkest)",
+                    "text-primary-darker": "Gold Darker (brand-primary-darker)",
+                    "text-primary-lighter": "Gold Lighter (brand-primary-lighter)",
+                    "text-primary-lightest": "Gold Lightest (brand-primary-lightest)",
+                    "text-metallic-darkest": "Metallic Gold Darkest (brand-metallic-darkest)",
+                    "text-metallic-darker": "Metallic Gold Darker (brand-metallic-darker)",
+                    "text-metallic": "Metallic Gold (brand-metallic)",
+                    "text-metallic-lighter": "Metallic Gold Lighter (brand-metallic-lighter)",
+                    "text-metallic-lightest": "Metallic Gold Lightest (brand-metallic-lightest)",
+                    "text-complementary": "Blue (brand-complementary)",
+                    "text-success": "Green (brand-success)",
+                    "text-info": "Light Blue (brand-info)",
+                    "text-warning": "Orange (brand-warning)",
+                    "text-danger": "Red (brand-danger)",
+                    "text-complementary-aw": "Blue AW (brand-complementary, against-white accessible)",
+                    "text-success-aw": "Green AW (brand-success, against-white accessible)",
+                    "text-info-aw": "Light Blue AW (brand-info, against-white accessible)",
+                    "text-warning-aw": "Orange AW (brand-warning, against-white accessible)",
+                    "text-danger-aw": "Red AW (brand-danger, against-white accessible)"
+                },
+                "default_value": [],
+                "allow_null": 1,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_59089624aa938",
+                "label": "Custom Text Color",
+                "name": "section_text_color_custom",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_59089420aa937",
+                            "operator": "==",
+                            "value": "custom"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_58f8d0611abb4",
+                "label": "Background Image (-sm+)",
+                "name": "section_background_image",
+                "type": "image",
+                "instructions": "The background image to display behind the section at the -sm breakpoint and up (576px+ wide).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "bg-img-sm",
+                "library": "all",
+                "min_width": 767,
+                "min_height": "",
+                "min_size": "",
+                "max_width": 1600,
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_58f8d08b1abb5",
+                "label": "Background Image (-xs)",
+                "name": "section_background_image_xs",
+                "type": "image",
+                "instructions": "The background image to display behind the section at the -xs breakpoint (<=575px wide).  This image is only displayed when a -sm background image has also been selected.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "bg-img",
+                "library": "all",
+                "min_width": 575,
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "ucf_section"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]
