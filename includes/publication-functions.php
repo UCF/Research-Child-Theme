@@ -69,7 +69,6 @@ function research_journal_markup( $markup, $publication ) {
 	$details = '<span class="publication-journal font-italic">' . $journal . '</span>';
 	$details .= ! empty( $advanced ) ? ' ' . $advanced : '';
 	$details .= ! empty( $published_date ) ? ': ' . $published_date : '';
-	// $details .= ! empty( $publication_url ) ? '<br>Publication: <a href="' . $publication_url . '" rel="noopener noreferrer nofollow" target="_blank">' . $publication_url . '</a>' : '';
 
 	ob_start();
 ?>
