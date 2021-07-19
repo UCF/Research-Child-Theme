@@ -15,7 +15,7 @@
 function research_book_markup( $markup, $publication ) {
 	$authors = get_field( 'publication_authors', $publication->ID );
 	$author_string = implode( ', ', array_column( $authors, 'post_title' ) );
-	$author_string = ( $author_string === '.' ) ? '' : $author_string;
+	$author_string = ( $author_string === '.' ) ? '' : $author_string . ', ';
 	$contributors = get_field( 'publication_contributors', $publication->ID );
 	$contributors_string = ( ! empty( $contributors ) ) ? implode( ', ', array_column( $contributors, 'publication_contributor' ) ) : '';
 	$publisher = get_field( 'publication_publisher', $publication->ID );
