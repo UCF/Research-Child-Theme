@@ -1079,6 +1079,23 @@
                     "operator": "==",
                     "value": "super_admin"
                 }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "page-template-cluster.php"
+                },
+                {
+                    "param": "current_user_role",
+                    "operator": "==",
+                    "value": "editor"
+                }
             ]
         ],
         "menu_order": 0,
@@ -1613,7 +1630,7 @@
                 ],
                 "elements": "",
                 "min": 1,
-                "max": 20,
+                "max": 50,
                 "return_format": "object"
             },
             {
