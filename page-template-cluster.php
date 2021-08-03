@@ -47,7 +47,7 @@ $research_publications = get_field( 'cluster_publications' );
 get_header(); the_post(); ?>
 
 <article class="<?php echo $post->post_status; ?> post-list-item">
-	<?php if ( count( $cluster_leads ) > 0 ) : ?>
+	<?php if ( $cluster_leads && count( $cluster_leads ) > 0 ) : ?>
 	<div class="bg-faded">
 		<div class="container py-4">
 			<div class="row">
