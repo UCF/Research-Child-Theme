@@ -47,6 +47,7 @@ $research_publications = get_field( 'cluster_publications' );
 get_header(); the_post(); ?>
 
 <article class="<?php echo $post->post_status; ?> post-list-item">
+	<?php if ( count( $cluster_leads ) > 0 ) : ?>
 	<div class="bg-faded">
 		<div class="container py-4">
 			<div class="row">
@@ -67,6 +68,7 @@ get_header(); the_post(); ?>
 			</div>
 		</div>
 	</div>
+	<?php endif; ?>
 	<div class="container mt-4 mt-sm-5 mb-5 pb-sm-4">
 		<div class="row">
 			<div class="col-lg-8">
