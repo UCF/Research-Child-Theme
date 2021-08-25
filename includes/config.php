@@ -92,3 +92,10 @@ function research_define_customizer_fields( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'research_define_customizer_fields' );
+
+function add_page_category() {
+    // Add category metabox to page
+    register_taxonomy_for_object_type('category', 'page');
+}
+
+add_action( 'init', 'add_page_category' );
