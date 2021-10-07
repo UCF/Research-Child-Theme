@@ -116,18 +116,26 @@ function research_format_story( $story, $source = 'external' ) {
 
 	ob_start();
 ?>
-	<div class="ucf-news-item">
-		<a href="<?php echo $permalink; ?>">
-			<div class="ucf-news-thumbnail">
-				<img class="ucf-news-thumbnail-image image" src="<?php echo $thumbnail; ?>" alt>
+	<div class="ucf-news-item media-background-container hover-parent p-3 mb-3" style="margin-left: -1rem; margin-right: -1rem;">
+		<div class="media-background hover-child-show fade" style="background-color: rgba(204, 204, 204, .25);"></div>
+
+		<div class="media">
+			<?php if ( $thumbnail ) : ?>
+			<div class="ucf-news-thumbnail d-flex w-25 mr-3" style="max-width: 150px;">
+				<img class="ucf-news-thumbnail-image img-fluid w-100" src="<?php echo $thumbnail; ?>" alt="">
 			</div>
-			<div class="ucf-news-item-content">
+			<?php endif; ?>
+			<div class="ucf-news-item-content media-body">
 				<div class="ucf-news-item-details">
-					<p class="ucf-news-item-title"><?php echo $title; ?></p>
-					<p class="ucf-news-item-excerpt"><?php echo wp_trim_words( $excerpt, 20 ); ?></p>
+					<a class="ucf-news-item-title d-block stretched-link h5 mb-2 pb-1" href="<?php echo $permalink; ?>" style="color: inherit;">
+						<?php echo $title; ?>
+					</a>
+					<div class="ucf-news-item-excerpt font-size-sm">
+						<?php echo wp_trim_words( $excerpt, 20 ); ?>
+					</div>
 				</div>
 			</div>
-		</a>
+		</div>
 	</div>
 <?php
 	return ob_get_clean();
