@@ -112,8 +112,8 @@ get_header(); the_post(); ?>
 					<?php if ( $cluster_feed_type === 'feed' ) : ?>
 					<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
 					<?php else : ?>
-					<div class="ucf-news modern">
-					<?php foreach( $news as $item ) echo $item; ?>
+					<div class="ucf-news ucf-news-modern">
+						<?php foreach( $news as $item ) echo $item; ?>
 					</div>
 					<?php endif; ?>
 
