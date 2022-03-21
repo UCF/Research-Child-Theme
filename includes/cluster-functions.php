@@ -127,7 +127,7 @@ function research_format_story( $story, $source = 'external' ) {
 			<?php endif; ?>
 			<div class="ucf-news-item-content media-body">
 				<div class="ucf-news-item-details">
-					<a class="ucf-news-item-title d-block stretched-link h5 mb-2 pb-1" href="<?php echo $permalink; ?>" style="color: inherit;">
+					<a class="ucf-news-item-title d-block stretched-link text-decoration-none h5 mb-2 pb-1" href="<?php echo $permalink; ?>" style="color: inherit;">
 						<?php echo $title; ?>
 					</a>
 					<div class="ucf-news-item-excerpt font-size-sm">
