@@ -60,9 +60,18 @@ get_header(); the_post(); ?>
 				?>
 				<div class="col">
 					<p class="mb-1 font-bold"><?php echo $cluster_lead->person_title_prefix; ?> <?php echo $cluster_lead->post_title; ?></p>
+
+					<?php if ( $cluster_lead_title ) : ?>
 					<span class="d-block"><?php echo $cluster_lead_title; ?></span>
+					<?php endif; ?>
+
+					<?php if ( $cluster_lead->person_phone ) : ?>
 					<span class="d-block"><a href="tel:<?php echo $cluster_lead->person_phone; ?>"><?php echo $cluster_lead->person_phone; ?></a></span>
+					<?php endif; ?>
+
+					<?php if ( $cluster_lead->person_email ) : ?>
 					<span class="d-block"><a href="mailto:<?php echo $cluster_lead->person_email; ?>"><?php echo $cluster_lead->person_email; ?></a></span>
+					<?php endif; ?>
 				</div>
 				<?php endforeach; ?>
 			</div>
@@ -111,7 +120,7 @@ get_header(); the_post(); ?>
 				<div class="col-lg-8">
 					<?php if ( $cluster_feed_type === 'feed' ) : ?>
 					<?php echo do_shortcode( "[ucf-news-feed layout='modern' topics='$cluster_feed_topic' title='']" ); ?>
-					<?php else : ?>
+					<?php elseif ( count( $news ) ) : ?>
 					<div class="ucf-news ucf-news-modern">
 						<?php foreach( $news as $item ) echo $item; ?>
 					</div>
