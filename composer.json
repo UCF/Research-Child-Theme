@@ -1,0 +1,8 @@
+{
+    "name": "ucf/research-child-theme",
+    "description": "Child theme for the https://www.ucf.edu/research/ site. Provides specific page template for research clusters and research. Built as a child theme of the UCF WordPress Theme, using the Athena Framework.",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
