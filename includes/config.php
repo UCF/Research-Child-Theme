@@ -99,3 +99,18 @@ function add_page_category() {
 }
 
 add_action( 'init', 'add_page_category' );
+
+
+function post_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Research Custom Widget',
+		'id'            => 'research-custom-widget',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'post_widgets_init' );

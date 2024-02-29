@@ -41,3 +41,22 @@ function research_get_backlink_markup( $obj ) {
 
 	return ob_get_clean();
 }
+
+/**
+ * Overrides the default header type for posts
+ * @author Jim Barnes
+ * @since 1.2.0
+ *
+ * @param string $header_type The default header_type
+ * @param object|null $object The currently queried object
+ * @return string
+ */
+function research_get_header_type( $header_type, $object ) {
+	if ( $header_type === "" && $object instanceof WP_Post && $object->post_type === 'post' ) {
+		$header_type = 'post';
+	}
+
+	return $header_type;
+}
+
+add_filter( 'ucfwp_get_header_type', 'research_get_header_type', 10, 2 );
