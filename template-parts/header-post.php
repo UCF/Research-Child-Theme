@@ -13,14 +13,14 @@ $exclude_nav = get_field( 'page_header_exclude_nav', $obj );
 			<?php
 			if( $categories_obj = get_categories() ) {
 				foreach ($categories_obj as $each) {
-					?><span class="small my-3 mr-2 p-1 bg-faded"><?php echo $each->name; ?></span><?php
+					?><span class="small my-3 p-1"><?php echo $each->name; ?> |</span><?php
 				}
 			}
 			?>
 		</div>
 		<div class="col-1"></div>
 		<div class="col-6 text-right my-1">
-			<span class="small mb-2 p-1 bg-faded">Author: <?php echo $author; ?></span>
+			<span class="small mb-2 p-1">Author: <?php echo $author; ?></span>
 		</div>
 	</div>
 </div>
