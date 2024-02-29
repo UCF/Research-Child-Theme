@@ -9,13 +9,6 @@
 			<div class="col-lg-12">
 				<?php the_content(); ?>
 			</div>
-			<div class="col-lg-0">
-				<?php if ( is_active_sidebar( 'research-custom-widget' ) ) : ?>
-					<div id="research-custom-widget" class="primary-sidebar widget-area" role="complementary">
-						<?php dynamic_sidebar( 'research-custom-widget' ); ?>
-					</div>
-				<?php endif; ?>
-			</div>
 		</div>
 	</div>
 </article>
