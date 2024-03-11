@@ -17,7 +17,7 @@ $exclude_nav = get_field( 'page_header_exclude_nav', $obj );
 					foreach ( $selected_categories as $index => $selected_category ) {
 						$category = get_category( $selected_category );
 		?>
-					<span class="small my-3 p-1"><?php echo esc_html( $category->name ); ?><?php echo $index < $count - 1 ? ' | ' : ''; ?></span>
+					<span class="medium my-3 p-1"><?php echo esc_html( $category->name ); ?><?php echo $index < $count - 1 ? ' | ' : ''; ?></span>
 		<?php
 					}
 				}
@@ -25,7 +25,7 @@ $exclude_nav = get_field( 'page_header_exclude_nav', $obj );
 	</div>
 		<div class="col-1"></div>
 		<div class="col-6 text-right my-1">
-			<span class="small mb-2 p-1">Author: <?php echo $author; ?></span>
+			<span class="medium mb-2 p-1">Author: <?php echo $author; ?></span>
 		</div>
 	</div>
 </div>
