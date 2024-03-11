@@ -14,10 +14,10 @@ $exclude_nav = get_field( 'page_header_exclude_nav', $obj );
 		$selected_categories = wp_get_post_categories( get_the_ID() );
 		$count = count( $selected_categories );
 			if ( $selected_categories ) {
-				foreach ( $selected_categories as $index => $category_id ) {
-					$category = get_category( $category_id );
+				foreach ( $selected_categories as $index => $selected_category ) {
+					$category = get_category( $selected_category );
 					?>
-					<a href="<?php echo esc_url( get_category_link( $category_id ) ); ?>" class="my-3 p-1"><?php echo esc_html( $category->name ); ?></a><?php echo $index < $count - 1 ? ' |' : ''; ?>
+					<a href="<?php echo esc_url( get_category_link( $selected_category ) ); ?>" class="my-3 p-1"><?php echo esc_html( $category->name ); ?></a><?php echo $index < $count - 1 ? ' |' : ''; ?>
 					<?php
 				}
 			}
