@@ -1,7 +1,3 @@
-<?php
-$response = wp_remote_get( 'https://wwwtest.ucf.edu/research/wp-json/wp/v2/posts' );
-?>
-
 <?php get_header(); the_post(); ?>
 
 <div>
