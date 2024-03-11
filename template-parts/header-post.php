@@ -10,14 +10,19 @@ $exclude_nav = get_field( 'page_header_exclude_nav', $obj );
 	<h1 class="mt-3 mb-2"><?php echo $obj->post_title; ?></h1>
 	<div class="row mb-4 pt-1">
 		<div class="col-5 my-1">
-			<?php
-			if( $categories_obj = get_categories() ) {
-				foreach ($categories_obj as $each) {
-					?><span class="small my-3 p-1"><?php echo $each->name; ?> |</span><?php
+		<?php
+			$selected_categories = wp_get_post_categories( get_the_ID() );
+			$count = count( $selected_categories );
+				if ( $selected_categories ) {
+					foreach ( $selected_categories as $index => $selected_category ) {
+						$category = get_category( $selected_category );
+		?>
+					<span class="small my-3 p-1"><?php echo esc_html( $category->name ); ?><?php echo $index < $count - 1 ? ' | ' : ''; ?></span>
+		<?php
+					}
 				}
-			}
-			?>
-		</div>
+		?>
+	</div>
 		<div class="col-1"></div>
 		<div class="col-6 text-right my-1">
 			<span class="small mb-2 p-1">Author: <?php echo $author; ?></span>
