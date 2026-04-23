@@ -238,7 +238,7 @@ get_header(); the_post(); ?>
 			</div>
 			<?php endif; ?>
 			<?php if ( $cluster_post_docs && count( $cluster_post_docs ) > 0 ) : ?>
-				<h2 id="post-doc-listing" class="h3"><?php echo $post->post_title; ?> Post Doctoral Researchers</h2>
+				<h2 id="post-doc-listing" class="h3"><?php echo $post->post_title; ?> Post Doctoral Researchers and Students</h2>
 				<div class="pt-4 pb-2">
 					<?php echo research_get_postdoc_list( $cluster_post_docs ); ?>
 				</div>
